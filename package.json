@@ -1,0 +1,45 @@
+{
+  "name": "APSupervisor",
+  "version": "0.0.1",
+  "description": "Dashboard to supervise APS busses in Padua",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeltaGraphs/APSupervisor"
+  },
+  "keywords": [
+    "APS",
+    "APSupervisor",
+    "Padova",
+    "Padua",
+    "norris",
+    "RTBI",
+    "graphs",
+    "bar",
+    "line",
+    "maps",
+    "table",
+    "charts"
+  ],
+  "author": "Matteo Furlan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeltaGraphs/APSupervisor/issues"
+  },
+  "homepage": "https://github.com/DeltaGraphs/APSupervisor",
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "istanbul": "^0.3.13",
+    "coveralls": "^2.11.2",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "scripts": {
+    "test": "make",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+  }
+}
