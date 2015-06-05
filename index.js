@@ -27,7 +27,7 @@ var page1=norris.createPage({
     ID:'linee',
     name: 'Linee Autobus',
     description: 'Pagina contenente le mappe dalla posizione attuale'+
-		' degli autobus delle linee dell\'APSBus Padova',
+		' degli autobus delle linee dell\'APS-Bus Padova',
     graphsPerRow: 2
 	}
 );
