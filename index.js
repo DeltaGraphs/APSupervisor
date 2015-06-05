@@ -38,8 +38,8 @@ console.log('Pagina inserita: '+page1);
 //TEST MAP CHART
 /////////////////////////////////////////////////
 var mapChart=page1.createMapChart({
-		ID: 'map1',
-		title: 'APS',
+		ID: 'map0',
+		title: 'APS test',
 		height: 600,
 		width: 1000,
 		enableLegend: true,
@@ -57,8 +57,8 @@ var mapChart=page1.createMapChart({
 console.log('Grafico inserito: '+mapChart);
 
 var mapChartFlow=mapChart.createMapChartFlow({
-		ID:'flow1',
-		name: 'linea 22',
+		ID:'flow0',
+		name: 'linea 22 - test',
 		marker:{
 			'type': 'shape',
 		},
