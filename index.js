@@ -7,6 +7,12 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 var request = require('request');
+
+// fix for Heroku polling error
+io.configure(function () {
+	io.set('transports', ['flashsocket', 'xhr-polling']);
+});
+
 /*
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
