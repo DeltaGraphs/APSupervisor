@@ -5,14 +5,9 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var server = http.createServer(app);
-var io = require('socket.io')(server);
+var io = require('socket.io')(server, {'transports': ['xhr-polling', 'flashsocket', 'json-polling']});
 var request = require('request');
 
-
-// fix for Heroku polling error
-io.on('connection', function () {
-	io.set('transports', ['xhr-polling', 'flashsocket', 'json-polling']);
-});
 /*
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
