@@ -6,6 +6,7 @@ var app = express();
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+var request = require('request');
 /*
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -376,6 +377,44 @@ var repeat=function(){
 };
 
 var myVar=setInterval(function () {repeat();}, 5000);
+
+
+function updateLinea(mapChartFlow,linea){
+	request.post(
+		'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw',
+		{ form: { l: linea },
+		json: true},
+		function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				mapChartFlow.updateMovie(body);
+			}
+		}
+	);
+}
+
+var poller=function(){
+	updateLinea(mapChartFlow_03_1,'03');
+	updateLinea(mapChartFlow_05_1,'05');
+	updateLinea(mapChartFlow_06_1,'06');
+	updateLinea(mapChartFlow_07_1,'07');
+	updateLinea(mapChartFlow_09_1,'09');
+	updateLinea(mapChartFlow_1_1,'1');
+	updateLinea(mapChartFlow_10_1,'10');
+	updateLinea(mapChartFlow_11_1,'11');
+	updateLinea(mapChartFlow_12_1,'12');
+	updateLinea(mapChartFlow_13_1,'13');
+	updateLinea(mapChartFlow_15_1,'15');
+	updateLinea(mapChartFlow_16_1,'16');
+	updateLinea(mapChartFlow_18_1,'18');
+	updateLinea(mapChartFlow_22_1,'22');
+	updateLinea(mapChartFlow_24_1,'24');
+	updateLinea(mapChartFlow_41_1,'41');
+	updateLinea(mapChartFlow_42_1,'42');
+	updateLinea(mapChartFlow_43_1,'43');
+	updateLinea(mapChartFlow_SIR1_1,'SIR1');
+};
+var myVar=setInterval(function () {poller();}, 1500);
+       
 
 app.get('/', function (req, res) {
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
