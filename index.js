@@ -392,7 +392,7 @@ function updateLinea(mapChartFlow,linea){
 		}
 	);
 }
-
+/*
 var poller=function(){
 	updateLinea(mapChartFlow_03_1,'03');
 	updateLinea(mapChartFlow_05_1,'05');
@@ -415,7 +415,7 @@ var poller=function(){
 	updateLinea(mapChartFlow_SIR1_1,'SIR1');
 };
 var myVar=setInterval(function () {poller();}, 1500);
-       
+  */     
 
 app.get('/', function (req, res) {
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
