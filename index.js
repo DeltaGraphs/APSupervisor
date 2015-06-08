@@ -11,8 +11,7 @@ var request = require('request');
 
 // fix for Heroku polling error
 io.on('connection', function () {
-	io.set('transports', ['xhr-polling']);
-	io.set("polling duration", 10);
+	io.set('transports', ['xhr-polling', 'flashsocket', 'json-polling']);
 });
 /*
 var allowCrossDomain = function(req, res, next) {
