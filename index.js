@@ -484,11 +484,11 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 		function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				mapChartFlow.updateMovie(body);
-				/*var tFlow = table.getFlowById(tableFlowName);
+				var tFlow = table.getFlowById(tableFlowName);
 				var prop = tFlow.getProperties();
 				table.deleteAllFlows();
 				tFlow = table.createTableFlow(prop);
-				for(var i in body) {
+				/*for(var i in body) {
 					tFlow.addRecord(body[i]);
 				}*/
 			}
