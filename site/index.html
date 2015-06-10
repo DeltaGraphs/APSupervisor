@@ -63,28 +63,36 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<p>Seleziona la linea che desideri: <select class="selectpicker">
-				    <option>05</option>
-				    <option>06</option>
-				    <option>07</option>
-				    <option>09</option>
-				    <option>10</option>
-				    <option>11</option>
-				    <option>12</option>
-				    <option>13</option>
-				    <option>15</option>
-				    <option>16</option>
-				    <option>18</option>
-				    <option>22</option>
-				    <option>24</option>
-				    <option>41</option>
-				    <option>42</option>
-				    <option>43</option>
-				    <option>SIR1</option>
+				<script type="text/javascript">
+					function setBusLineOnGraphs(){
+						var linea=document.getElementById('lineaBus').value;
+						document.getElementById('mappaLinea').setAttribute("url", "http://apsupervisor-dev.herokuapp.com/linee/map"+linea);
+					}
+				</script>
+				<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: setBusLineOnGraphs();">
+				    <option value="03">Linea 03</option>
+				    <option value="05">Linea 05</option>
+				    <option value="06">Linea 06</option>
+				    <option value="07">Linea 07</option>
+				    <option value="09">Linea 09</option>
+				    <option value="1">Linea 1</option>
+				    <option value="10">Linea 10</option>
+				    <option value="11">Linea 11</option>
+				    <option value="12">Linea 12</option>
+				    <option value="13">Linea 13</option>
+				    <option value="15">Linea 15</option>
+				    <option value="16">Linea 16</option>
+				    <option value="18">Linea 18</option>
+				    <option value="22" selected="selected">Linea 22</option>
+				    <option value="24">Linea 24</option>
+				    <option value="41">Linea 41</option>
+				    <option value="42">Linea 42</option>
+				    <option value="43">Linea 43</option>
+				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
 				<div ng-controller="MapChartController">
-		        	<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart>
+		        	<map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart>
 		        </div>
 		        	
 			</div>
