@@ -422,7 +422,7 @@ var myVar=setInterval(function () {poller();}, 1500);
 	console.log(' HOME APS - expressEsempio.js '+ fullUrl);
 	res.send('HOME APS - expressEsempio.js '+ fullUrl);
 });*/
-app.use('/', express.static(__dirname + '/'));
+app.use('/', express.static(__dirname + '/site'));
 
 // questo middleware non permetterà di raggiungere altre richieste scritte al di sotto di questa funzione
 // utilizzabile come 404
