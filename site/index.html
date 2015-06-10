@@ -21,7 +21,11 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <style>
+	#mappaLinea :first-child + div{
+	    width: 100% !important;
+	}
+	</style>
 </head>
 <body ng-app='norris-nrti'>
 
@@ -64,6 +68,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<script type="text/javascript">
+
+					/*window.onresize = function(event) {
+					    document.getElementById('mappaLinea').firstChild.nextSibling.style.width='100%';
+					};*/
+
 					function setBusLineOnGraphs(){
 						var linea=document.getElementById('lineaBus').value;
 						//document.getElementById('mappaLinea').setAttribute("url", "http://apsupervisor-dev.herokuapp.com/linee/map"+linea);
