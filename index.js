@@ -417,11 +417,12 @@ var poller=function(){
 var myVar=setInterval(function () {poller();}, 1500);
     
 
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
 	var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 	console.log(' HOME APS - expressEsempio.js '+ fullUrl);
 	res.send('HOME APS - expressEsempio.js '+ fullUrl);
-});
+});*/
+app.use('/', express.static(__dirname + '/'));
 
 // questo middleware non permetterà di raggiungere altre richieste scritte al di sotto di questa funzione
 // utilizzabile come 404
