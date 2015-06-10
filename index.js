@@ -484,7 +484,8 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 		function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				mapChartFlow.updateMovie(body);
-				table.getProperties();
+				console.log('PRINTING THIS FUCKING TABLE');
+				console.log(table.getProperties());
 				/*var tFlow = table.getFlowById(tableFlowName);
 				/*var prop = tFlow.getProperties();
 				/*table.deleteAllFlows();
