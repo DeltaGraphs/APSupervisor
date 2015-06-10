@@ -66,7 +66,9 @@
 				<script type="text/javascript">
 					function setBusLineOnGraphs(){
 						var linea=document.getElementById('lineaBus').value;
-						document.getElementById('mappaLinea').setAttribute("url", "http://apsupervisor-dev.herokuapp.com/linee/map"+linea);
+						//document.getElementById('mappaLinea').setAttribute("url", "http://apsupervisor-dev.herokuapp.com/linee/map"+linea);
+						console.log("-------------------------------");
+						document.getElementById('mapContainer').innerHTML='<div  ng-controller="MapChartController"><map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart></div>';
 					}
 				</script>
 				<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: setBusLineOnGraphs();">
@@ -91,10 +93,11 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<div ng-controller="MapChartController">
-		        	<map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart>
-		        </div>
-		        	
+				<div id="mapContainer">
+					<div  ng-controller="MapChartController">
+		        		<map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map03"></map-chart>
+		       		</div>
+		        </div>	
 			</div>
 		</div>
 	</div>	
@@ -124,29 +127,29 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Pages</h5>
+					<!--<h5 class="widgetheading">Pages</h5>
 					<ul class="link-list">
 						<li><a href="#">Press release</a></li>
 						<li><a href="#">Terms and conditions</a></li>
 						<li><a href="#">Privacy policy</a></li>
 						<li><a href="#">Career center</a></li>
 						<li><a href="#">Contact us</a></li>
-					</ul>
+					</ul>-->
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
+					<!--<h5 class="widgetheading">Latest posts</h5>
 					<ul class="link-list">
 						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
 						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
 						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
+					</ul>-->
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Flickr photostream</h5>
+					<!--<h5 class="widgetheading">Flickr photostream</h5>-->
 					<div class="clear">
 					</div>
 				</div>
@@ -162,9 +165,6 @@
 							<span>&copy; APSupervisor 2015 All right reserved. By </span><a href="https://github.com/DeltaGraphs" target="_blank">Deltagraphs</a>
 						</p>
 					</div>
-				</div>
-				<div class="col-lg-6">
-					<p>CSCS</p>
 				</div>
 			</div>
 		</div>
