@@ -379,8 +379,104 @@ var repeat=function(){
 
 var myVar=setInterval(function () {repeat();}, 5000);
 
+var tableProps = {
+	headers: ['Bus ID', 'Terminus'],
+	appearance: {
+		headers: {
+			textColor: '#FFF',
+			backgroundColor: '#68AC4'
+		},
+		rowEven: {
+			textColor: '#000',
+			backgroundColor: '#FFF'
+		},
+		rowOdd: {
+			textColor: '#000',
+			backgroundColor: '#FFF'
+		}
+	}
+};
 
-function updateLinea(mapChartFlow,linea){
+var prop03 = tableProps;
+prop03.ID = 'tab03';
+prop03.title = 'linea 03';
+var table03 = page1.createTable(prop03);
+var tableFlow_03 = table03.createTableFlow({ID:'flow03', name:'linea 03', columnKeys:['IdMezzo', 'capolinea']});var prop05 = tableProps;
+prop03.ID = 'tab05';
+prop03.title = 'linea 05';
+var table05 = page1.createTable(prop05);
+var tableFlow_05 = table03.createTableFlow({ID:'flow05', name:'linea 05', columnKeys:['IdMezzo', 'capolinea']});var prop06 = tableProps;
+prop03.ID = 'tab06';
+prop03.title = 'linea 06';
+var table06 = page1.createTable(prop06);
+var tableFlow_06 = table03.createTableFlow({ID:'flow06', name:'linea 06', columnKeys:['IdMezzo', 'capolinea']});var prop07 = tableProps;
+prop03.ID = 'tab07';
+prop03.title = 'linea 07';
+var table07 = page1.createTable(prop07);
+var tableFlow_07 = table03.createTableFlow({ID:'flow07', name:'linea 07', columnKeys:['IdMezzo', 'capolinea']});var prop09 = tableProps;
+prop03.ID = 'tab09';
+prop03.title = 'linea 09';
+var table09 = page1.createTable(prop09);
+var tableFlow_09 = table03.createTableFlow({ID:'flow09', name:'linea 09', columnKeys:['IdMezzo', 'capolinea']});var prop1 = tableProps;
+prop03.ID = 'tab1';
+prop03.title = 'linea 1';
+var table1 = page1.createTable(prop1);
+var tableFlow_1 = table03.createTableFlow({ID:'flow1', name:'linea 1', columnKeys:['IdMezzo', 'capolinea']});var prop10 = tableProps;
+prop03.ID = 'tab10';
+prop03.title = 'linea 10';
+var table10 = page1.createTable(prop10);
+var tableFlow_10 = table03.createTableFlow({ID:'flow10', name:'linea 10', columnKeys:['IdMezzo', 'capolinea']});var prop11 = tableProps;
+prop03.ID = 'tab11';
+prop03.title = 'linea 11';
+var table11 = page1.createTable(prop11);
+var tableFlow_11 = table03.createTableFlow({ID:'flow11', name:'linea 11', columnKeys:['IdMezzo', 'capolinea']});var prop12 = tableProps;
+prop03.ID = 'tab12';
+prop03.title = 'linea 12';
+var table12 = page1.createTable(prop12);
+var tableFlow_12 = table03.createTableFlow({ID:'flow12', name:'linea 12', columnKeys:['IdMezzo', 'capolinea']});var prop13 = tableProps;
+prop03.ID = 'tab13';
+prop03.title = 'linea 13';
+var table13 = page1.createTable(prop13);
+var tableFlow_13 = table03.createTableFlow({ID:'flow13', name:'linea 13', columnKeys:['IdMezzo', 'capolinea']});var prop15 = tableProps;
+prop03.ID = 'tab15';
+prop03.title = 'linea 15';
+var table15 = page1.createTable(prop15);
+var tableFlow_15 = table03.createTableFlow({ID:'flow15', name:'linea 15', columnKeys:['IdMezzo', 'capolinea']});var prop16 = tableProps;
+prop03.ID = 'tab16';
+prop03.title = 'linea 16';
+var table16 = page1.createTable(prop16);
+var tableFlow_16 = table03.createTableFlow({ID:'flow16', name:'linea 16', columnKeys:['IdMezzo', 'capolinea']});var prop18 = tableProps;
+prop03.ID = 'tab18';
+prop03.title = 'linea 18';
+var table18 = page1.createTable(prop18);
+var tableFlow_18 = table03.createTableFlow({ID:'flow18', name:'linea 18', columnKeys:['IdMezzo', 'capolinea']});var prop22 = tableProps;
+prop03.ID = 'tab22';
+prop03.title = 'linea 22';
+var table22 = page1.createTable(prop22);
+var tableFlow_22 = table03.createTableFlow({ID:'flow22', name:'linea 22', columnKeys:['IdMezzo', 'capolinea']});var prop24 = tableProps;
+prop03.ID = 'tab24';
+prop03.title = 'linea 24';
+var table24 = page1.createTable(prop24);
+var tableFlow_24 = table03.createTableFlow({ID:'flow24', name:'linea 24', columnKeys:['IdMezzo', 'capolinea']});var prop41 = tableProps;
+prop03.ID = 'tab41';
+prop03.title = 'linea 41';
+var table41 = page1.createTable(prop41);
+var tableFlow_41 = table03.createTableFlow({ID:'flow41', name:'linea 41', columnKeys:['IdMezzo', 'capolinea']});var prop42 = tableProps;
+prop03.ID = 'tab42';
+prop03.title = 'linea 42';
+var table42 = page1.createTable(prop42);
+var tableFlow_42 = table03.createTableFlow({ID:'flow42', name:'linea 42', columnKeys:['IdMezzo', 'capolinea']});var prop43 = tableProps;
+prop03.ID = 'tab43';
+prop03.title = 'linea 43';
+var table43 = page1.createTable(prop43);
+var tableFlow_43 = table03.createTableFlow({ID:'flow43', name:'linea 43', columnKeys:['IdMezzo', 'capolinea']});var propSIR1 = tableProps;
+prop03.ID = 'tabSIR1';
+prop03.title = 'linea SIR1';
+var tableSIR1 = page1.createTable(propSIR1);
+var tableFlow_SIR1 = table03.createTableFlow({ID:'flowSIR1', name:'linea SIR1', columnKeys:['IdMezzo', 'capolinea']}); 
+
+
+function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	request.post(
 		'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw',
 		{ form: { l: linea },
@@ -388,31 +484,38 @@ function updateLinea(mapChartFlow,linea){
 		function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				mapChartFlow.updateMovie(body);
+				var tFlow = table.getFlowById(tableFlowName);
+				var prop = tFlow.getProperties();
+				table.deleteAllFlows();
+				tFlow = table.createTableFlow(prop);
+				for(var i in body) {
+					tFlow.addRecord(body[i]);
+				}
 			}
 		}
 	);
 }
 
 var poller=function(){
-	updateLinea(mapChartFlow_03_1,'03');
-	updateLinea(mapChartFlow_05_1,'05');
-	updateLinea(mapChartFlow_06_1,'06');
-	updateLinea(mapChartFlow_07_1,'07');
-	updateLinea(mapChartFlow_09_1,'09');
-	updateLinea(mapChartFlow_1_1,'1');
-	updateLinea(mapChartFlow_10_1,'10');
-	updateLinea(mapChartFlow_11_1,'11');
-	updateLinea(mapChartFlow_12_1,'12');
-	updateLinea(mapChartFlow_13_1,'13');
-	updateLinea(mapChartFlow_15_1,'15');
-	updateLinea(mapChartFlow_16_1,'16');
-	updateLinea(mapChartFlow_18_1,'18');
-	updateLinea(mapChartFlow_22_1,'22');
-	updateLinea(mapChartFlow_24_1,'24');
-	updateLinea(mapChartFlow_41_1,'41');
-	updateLinea(mapChartFlow_42_1,'42');
-	updateLinea(mapChartFlow_43_1,'43');
-	updateLinea(mapChartFlow_SIR1_1,'SIR1');
+	updateLinea(mapChartFlow_03_1,table03,'flow03','03');
+	updateLinea(mapChartFlow_05_1,table05,'flow05','05');
+	updateLinea(mapChartFlow_06_1,table06,'flow06','06');
+	updateLinea(mapChartFlow_07_1,table07,'flow07','07');
+	updateLinea(mapChartFlow_09_1,table09,'flow09','09');
+	updateLinea(mapChartFlow_1_1,table1,'flow1','1');
+	updateLinea(mapChartFlow_10_1,table10,'flow10','10');
+	updateLinea(mapChartFlow_11_1,table11,'flow11','11');
+	updateLinea(mapChartFlow_12_1,table12,'flow12','12');
+	updateLinea(mapChartFlow_13_1,table13,'flow13','13');
+	updateLinea(mapChartFlow_15_1,table15,'flow15','15');
+	updateLinea(mapChartFlow_16_1,table16,'flow16','16');
+	updateLinea(mapChartFlow_18_1,table18,'flow18','18');
+	updateLinea(mapChartFlow_22_1,table22,'flow22','22');
+	updateLinea(mapChartFlow_24_1,table24,'flow24','24');
+	updateLinea(mapChartFlow_41_1,table41,'flow41','41');
+	updateLinea(mapChartFlow_42_1,table42,'flow42','42');
+	updateLinea(mapChartFlow_43_1,table43,'flow43','43');
+	updateLinea(mapChartFlow_SIR1_1,tableSIR1,'flowSIR1','SIR1');
 };
 var myVar=setInterval(function () {poller();}, 1500);
     
