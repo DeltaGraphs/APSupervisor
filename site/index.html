@@ -36,10 +36,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><span>M</span>oderna</a>
+                    <a class="navbar-brand" href="index.html"><span>APSupervisor</span> i bus di Padova in real-time</a>
                 </div>
                 <div class="navbar-collapse collapse ">
-                    <ul class="nav navbar-nav">
+                    <!--<ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Features <b class=" icon-angle-down"></b></a>
@@ -52,7 +52,7 @@
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </div>
@@ -63,6 +63,26 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
+				<p>Seleziona la linea che desideri: <select class="selectpicker">
+				    <option>05</option>
+				    <option>06</option>
+				    <option>07</option>
+				    <option>09</option>
+				    <option>10</option>
+				    <option>11</option>
+				    <option>12</option>
+				    <option>13</option>
+				    <option>15</option>
+				    <option>16</option>
+				    <option>18</option>
+				    <option>22</option>
+				    <option>24</option>
+				    <option>41</option>
+				    <option>42</option>
+				    <option>43</option>
+				    <option>SIR1</option>
+				  </select>
+				</p>
 				<div ng-controller="MapChartController">
 		        	<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart>
 		        </div>
@@ -70,181 +90,27 @@
 			</div>
 		</div>
 	</div>	
-	
-	
 
 	</section>
 	<section class="callaction">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="big-cta">
-					<div class="cta-text">
-						<h2><span>Moderna</span> HTML Business Template</h2>
-					</div>
-				</div>
+				<p>TABELLA</p>
 			</div>
 		</div>
 	</div>
 	</section>
-	<section id="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="row">
-					<div class="col-lg-3">
-						<div class="box">
-							<div class="box-gray aligncenter">
-								<h4>Fully responsive</h4>
-								<div class="icon">
-								<i class="fa fa-desktop fa-3x"></i>
-								</div>
-								<p>
-								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-								</p>
-									
-							</div>
-							<div class="box-bottom">
-								<a href="#">Learn more</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="box">
-							<div class="box-gray aligncenter">
-								<h4>Modern Style</h4>
-								<div class="icon">
-								<i class="fa fa-pagelines fa-3x"></i>
-								</div>
-								<p>
-								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-								</p>
-									
-							</div>
-							<div class="box-bottom">
-								<a href="#">Learn more</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="box">
-							<div class="box-gray aligncenter">
-								<h4>Customizable</h4>
-								<div class="icon">
-								<i class="fa fa-edit fa-3x"></i>
-								</div>
-								<p>
-								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-								</p>
-									
-							</div>
-							<div class="box-bottom">
-								<a href="#">Learn more</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="box">
-							<div class="box-gray aligncenter">
-								<h4>Valid HTML5</h4>
-								<div class="icon">
-								<i class="fa fa-code fa-3x"></i>
-								</div>
-								<p>
-								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
-								</p>
-									
-							</div>
-							<div class="box-bottom">
-								<a href="#">Learn more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- divider -->
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="solidline">
-				</div>
-			</div>
-		</div>
-		<!-- end divider -->
-		<!-- Portfolio Projects -->
-		<div class="row">
-			<div class="col-lg-12">
-				<h4 class="heading">Recent Works</h4>
-				<div class="row">
-					<section id="projects">
-					<ul id="thumbs" class="portfolio">
-						<!-- Item Project and Filter Name -->
-						<li class="col-lg-3 design" data-id="id-0" data-type="web">
-						<div class="item-thumbs">
-						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 1" href="img/works/1.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-						<!-- Thumb Image and Description -->
-						<img src="img/works/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-						</div>
-						</li>
-						<!-- End Item Project -->
-						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
-						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 2" href="img/works/2.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-						<!-- Thumb Image and Description -->
-						<img src="img/works/2.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-						</li>
-						<!-- End Item Project -->
-						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
-						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 3" href="img/works/3.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-						<!-- Thumb Image and Description -->
-						<img src="img/works/3.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-						</li>
-						<!-- End Item Project -->
-						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
-						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 4" href="img/works/4.jpg">
-						<span class="overlay-img"></span>
-						<span class="overlay-img-thumb font-icon-plus"></span>
-						</a>
-						<!-- Thumb Image and Description -->
-						<img src="img/works/4.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-						</li>
-						<!-- End Item Project -->
-					</ul>
-					</section>
-				</div>
-			</div>
-		</div>
-
-	</div>
-	</section>
+	
 	<footer>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="widget">
 					<h5 class="widgetheading">Get in touch with us</h5>
-					<address>
-					<strong>Moderna company Inc</strong><br>
-					 Modernbuilding suite V124, AB 01<br>
-					 Someplace 16425 Earth </address>
+					
 					<p>
-						<i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-						<i class="icon-envelope-alt"></i> email@domainname.com
+						<i class="icon-envelope-alt"></i> deltagraphs@gmail.com
 					</p>
 				</div>
 			</div>
@@ -273,9 +139,6 @@
 			<div class="col-lg-3">
 				<div class="widget">
 					<h5 class="widgetheading">Flickr photostream</h5>
-					<div class="flickr_badge">
-						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
-					</div>
 					<div class="clear">
 					</div>
 				</div>
@@ -288,18 +151,12 @@
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; Moderna 2014 All right reserved. By </span><a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>
+							<span>&copy; APSupervisor 2015 All right reserved. By </span><a href="https://github.com/DeltaGraphs" target="_blank">Deltagraphs</a>
 						</p>
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<ul class="social-network">
-						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
+					<p>CSCS</p>
 				</div>
 			</div>
 		</div>
