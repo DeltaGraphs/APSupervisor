@@ -484,6 +484,7 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 		function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				mapChartFlow.updateMovie(body);
+				console.dir(body);
 				/*var tFlow = table.getFlowByID(tableFlowName);
 				console.dir(tFlow);
 				var prop = tFlow.getProperties();
@@ -492,6 +493,8 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 				for(var i in body) {
 					tFlow.addRecord(body[i]);
 				}*/
+			}else{
+				console.log('NON VA NULLA');
 			}
 		}
 	);
