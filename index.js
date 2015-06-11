@@ -495,6 +495,8 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 				}*/
 			}else{
 				console.log('NON VA NULLA');
+				console.dir(error);
+				console.dir(response.statusCode);
 			}
 		}
 	);
