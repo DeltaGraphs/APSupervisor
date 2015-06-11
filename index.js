@@ -517,7 +517,7 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	        
 	    gunzip.on('end', function(){
 	    	console.log(json);
-			mapChartFlow.updateMovie(json);
+			mapChartFlow.updateMovie(JSON.parse(json));
 
 	    });
 	 
