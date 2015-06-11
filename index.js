@@ -501,10 +501,10 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
 
 	var response = request(options);
     console.log('RESPONSE');
-    gunzipJSON(mapChartFlow,table,tableFlowName,linea);
+    gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
 }
  
-function gunzipJSON(mapChartFlow,table,tableFlowName,linea){
+function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
  	console.log('gunzipJSON');
     var gunzip = zlib.createGunzip();
     var json = "";
