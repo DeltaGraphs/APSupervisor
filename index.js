@@ -7,7 +7,7 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
 var request = require('request');
-var zlib = = require('zlib');
+var zlib = require('zlib');
 /*
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
