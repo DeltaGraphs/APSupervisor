@@ -482,9 +482,14 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0',
 	    'Content-Type' : 'application/x-www-form-urlencoded' 
 	};
-	var form = { l: linea };
 
-	request.post({ url: url, form: form, headers: headers }, /*function (e, r, body) {
+	var options = {
+	    url: url,
+	    method: 'POST',
+	    headers: headers,
+	    form: { 'l': linea }
+	}
+	request(options, /*function (e, r, body) {
 	    // your callback body
 	});
 	request.post(
