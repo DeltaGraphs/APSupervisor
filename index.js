@@ -502,8 +502,6 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 		}
 
 		var response = request(options);
-	    console.dir('RESPONSE');
-	    console.dir(response);
 	    gunzipJSON(response);
 	}
 	 
