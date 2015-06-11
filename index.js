@@ -477,10 +477,17 @@ var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1'
 
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
-	var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
+	var url = 'http://www.apsholding.it/index.php/informazioni/dov%C2%ADe%C2%ADil%C2%ADmezzo%C2%ADpubblico%C2%ADin%C2%ADtempo%C2%ADreale?option=com_mappeaps&view=posmezzi&format=raw';
 	var headers = { 
-	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0',
-	    'Content-Type' : 'application/x-www-form-urlencoded' 
+	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36',
+	    'Content-Type' : 'application/x-www-form-urlencoded',
+	    'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+	    'Pragma': 'no-cache',
+	    'Origin': 'null',
+	    'Accept-Encoding': 'gzip, deflate',
+	    'Accept-Language': 'it-IT,it;q=0.8,en-US;q=0.6,en;q=0.4',
+	    'Cache-Control': 'no-cache',
+	    'Connection': 'keep-alive'
 	};
 
 	var options = {
@@ -489,6 +496,7 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    headers: headers,
 	    form: { 'l': linea }
 	}
+	console.dir(options);
 	request(options, /*function (e, r, body) {
 	    // your callback body
 	});
