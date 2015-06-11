@@ -527,7 +527,7 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	 });
 
 	req.on('error', function(err) {
-	   next(err);
+	   console.dir(err);
 	});
 }
 
