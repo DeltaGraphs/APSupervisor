@@ -515,9 +515,11 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    });
 	        
 	    gunzip.on('end', function(){
-	    	if(json.indexOf('<') !== 0){
+	    	console.log('FirstChar: '+json.charAt(0));
+	    	if(json.charAt(0) !== '<'){
 		    	var obj=JSON.parse(json);
 		    	console.log(typeof obj);
+		    	console.log(json);
 				mapChartFlow.updateMovie(obj);
 			}else{
 				console.log('ERRORE SULLA LINEA  : '+ linea)
