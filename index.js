@@ -477,11 +477,21 @@ var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1'
 
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
+	var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
+	var headers = { 
+	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0',
+	    'Content-Type' : 'application/x-www-form-urlencoded' 
+	};
+	var form = { l: linea };
+
+	request.post({ url: url, form: form, headers: headers }, /*function (e, r, body) {
+	    // your callback body
+	});
 	request.post(
-		'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw',
+		',
 		{ form: { l: linea },
 		json: true},
-		function (error, response, body) {
+		*/function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				mapChartFlow.updateMovie(body);
 				console.dir(body);
