@@ -517,10 +517,13 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    });
 	        
 	    gunzip.on('end', function(){
-	    	var obj=JSON.parse(json);
-	    	console.log(typeof obj);
-			mapChartFlow.updateMovie(obj);
-
+	    	if(json.indexOf('<') !== 0){
+		    	var obj=JSON.parse(json);
+		    	console.log(typeof obj);
+				mapChartFlow.updateMovie(obj);
+			}else{
+				console.log('ERRORE SULLA LINEA  : '+ linea)
+			}
 	    });
 	 
 	    response.pipe(gunzip);
