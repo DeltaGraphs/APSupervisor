@@ -487,7 +487,8 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    'Accept-Encoding': 'gzip, deflate',
 	    'Accept-Language': 'it-IT,it;q=0.8,en-US;q=0.6,en;q=0.4',
 	    'Cache-Control': 'no-cache',
-	    'Connection': 'keep-alive'
+	    'Connection': 'keep-alive',
+	    'gzip': true
 	};
 
 	var options = {
