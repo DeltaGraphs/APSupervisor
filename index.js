@@ -7,7 +7,7 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
 var request = require('request');
-
+var zlib = = require('zlib');
 /*
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -498,33 +498,37 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	    form: { 'l': linea }
 	}
 	console.dir(options);
-	request(options, /*function (e, r, body) {
-	    // your callback body
+
+	var req = http.request(options, function(res) {
+	    var body = "";
+
+	    res.on('error', function(err) {
+	       next(err);
+	    });
+
+	    var output;
+	    if( res.headers['content-encoding'] == 'gzip' ) {
+	      var gzip = zlib.createGunzip();
+	      res.pipe(gzip);
+	      output = gzip;
+	    } else {
+	      output = res;
+	    }
+
+	    output.on('data', function (data) {
+	       data = data.toString('utf-8');
+	       body += data;
+	    });
+
+	    output.on('end', function() {
+	        //return next(false, body);
+	        console.log(body);
+	    });
+	 });
+
+	req.on('error', function(err) {
+	   next(err);
 	});
-	request.post(
-		',
-		{ form: { l: linea },
-		json: true},
-		*/function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				mapChartFlow.updateMovie(body);
-				console.dir(body);
-				/*var tFlow = table.getFlowByID(tableFlowName);
-				console.dir(tFlow);
-				var prop = tFlow.getProperties();
-				table.deleteAllFlows();
-				/*tFlow = table.createTableFlow(prop);
-				for(var i in body) {
-					tFlow.addRecord(body[i]);
-				}*/
-			}else{
-				console.log('NON VA NULLA');
-				console.log(body);
-				console.dir(error);
-				console.log(response.statusCode);
-			}
-		}
-	);
 }
 
 var poller=function(){
