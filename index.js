@@ -477,7 +477,7 @@ var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1'
 
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
-	var url = 'http://www.apsholding.it/index.php/informazioni/dov%C2%ADe%C2%ADil%C2%ADmezzo%C2%ADpubblico%C2%ADin%C2%ADtempo%C2%ADreale?option=com_mappeaps&view=posmezzi&format=raw';
+	var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
 	var headers = { 
 	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36',
 	    'Content-Type' : 'application/x-www-form-urlencoded',
