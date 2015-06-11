@@ -476,9 +476,7 @@ var tableSIR1 = page1.createTable(propSIR1);
 var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1', columnKeys:['IdMezzo', 'capolinea']});
 
 
-function updateLinea(mapChartFlow,table,tableFlowName,linea){
-	makeRequest(linea);
-	function makeRequest(linea){
+function makeRequest(mapChartFlow,table,tableFlowName,linea){
     
     var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
 	var headers = { 
@@ -503,10 +501,10 @@ function updateLinea(mapChartFlow,table,tableFlowName,linea){
 
 	var response = request(options);
     console.log('RESPONSE');
-    gunzipJSON(response);
+    gunzipJSON(mapChartFlow,table,tableFlowName,linea);
 }
  
-function gunzipJSON(response){
+function gunzipJSON(mapChartFlow,table,tableFlowName,linea){
  	console.log('gunzipJSON');
     var gunzip = zlib.createGunzip();
     var json = "";
@@ -521,6 +519,9 @@ function gunzipJSON(response){
  
     response.pipe(gunzip);
 }
+
+function updateLinea(mapChartFlow,table,tableFlowName,linea){
+	makeRequest(mapChartFlow,table,tableFlowName,linea);
 }
 
 var poller=function(){
