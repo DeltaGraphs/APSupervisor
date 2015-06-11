@@ -477,58 +477,51 @@ var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1'
 
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
-/*	var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
-	var headers = { 
-	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36',
-	    'Content-Type' : 'application/x-www-form-urlencoded',
-//	    'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*//*;q=0.8',
-	    'Pragma': 'no-cache',
-	    'Origin': 'null',
-	    'Accept-Encoding': 'gzip',
-	    'Accept-Language': 'it-IT,it;q=0.8,en-US;q=0.6,en;q=0.4',
-	    'Cache-Control': 'no-cache',
-	    'Connection': 'keep-alive',
-	    'gzip': true
-	};
+	function makeRequest(linea){
+    
+	    var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
+		var headers = { 
+		    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36',
+		    'Content-Type' : 'application/x-www-form-urlencoded',
+		    'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+		    'Pragma': 'no-cache',
+		    'Origin': 'null',
+		    'Accept-Encoding': 'gzip',
+		    'Accept-Language': 'it-IT,it;q=0.8,en-US;q=0.6,en;q=0.4',
+		    'Cache-Control': 'no-cache',
+		    'Connection': 'keep-alive',
+		    'gzip': true
+		};
 
-	var options = {
-	    url: url,
-	    method: 'POST',
-	    headers: headers,
-	    form: { 'l': linea }
+		var options = {
+		    url: url,
+		    method: 'POST',
+		    headers: headers,
+		    form: { 'l': linea }
+		}
+
+		var response = request(options);
+	    console.log('RESPONSE');
+	    gunzipJSON(response);
 	}
-	console.dir(options);
-
-	var req = http.request(options, function(res) {
-	    var body = "";
-
-	    res.on('error', function(err) {
-	       next(err);
+	 
+	function gunzipJSON(response){
+	 	console.log('gunzipJSON');
+	    var gunzip = zlib.createGunzip();
+	    var json = "";
+	 
+	    gunzip.on('data', function(data){
+	        json += data.toString();
 	    });
+	        
+	    gunzip.on('end', function(){
+	    	
+			mapChartFlow.updateMovie(body);
 
-	    var output;
-	    if( res.headers['content-encoding'] == 'gzip' ) {
-	      var gzip = zlib.createGunzip();
-	      res.pipe(gzip);
-	      output = gzip;
-	    } else {
-	      output = res;
-	    }
-
-	    output.on('data', function (data) {
-	       data = data.toString('utf-8');
-	       body += data;
 	    });
-
-	    output.on('end', function() {
-	        //return next(false, body);
-	        console.log(body);
-	    });
-	 });
-
-	req.on('error', function(err) {
-	   console.dir(err);
-	});*/
+	 
+	    response.pipe(gunzip);
+	}
 }
 
 var poller=function(){

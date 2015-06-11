@@ -68,19 +68,92 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<script type="text/javascript">
+					var appConfig = function($routeProvider) {
+					    $routeProvider /* inizio definizione di routeProvider */
+					    .when('/' ,{
 
-					/*window.onresize = function(event) {
-					    document.getElementById('mappaLinea').firstChild.nextSibling.style.width='100%';
-					};*/
-
-					function setBusLineOnGraphs(){
-						var linea=document.getElementById('lineaBus').value;
-						//document.getElementById('mappaLinea').setAttribute("url", "http://apsupervisor-dev.herokuapp.com/linee/map"+linea);
-						console.log("-------------------------------");
-						document.getElementById('mapContainer').innerHTML='<div  ng-controller="MapChartController"><map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart></div>';
-					}
+					    	})
+					        .when('/map/03',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map03"></map-chart>'
+					        })
+					        .when('/map/05',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map05"></map-chart>'
+					        })
+					        .when('/map/06',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map06"></map-chart>'
+					        })
+					        .when('/map/07',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map07"></map-chart>'
+					        })
+					        .when('/map/09',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map09"></map-chart>'
+					        })
+					        .when('/map/1',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map1"></map-chart>'
+					        })
+					        .when('/map/10',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map10"></map-chart>'
+					        })
+					        .when('/map/11',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map11"></map-chart>'
+					        })
+					        .when('/map/12',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map12"></map-chart>'
+					        })
+					        .when('/map/13',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map13"></map-chart>'
+					        })
+					        .when('/map/15',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map15"></map-chart>'
+					        })
+					        .when('/map/16',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map16"></map-chart>'
+					        })
+					        .when('/map/18',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map18"></map-chart>'
+					        })
+					        .when('/map/22',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map22"></map-chart>'
+					        })
+					        .when('/map/24',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map24"></map-chart>'
+					        })
+					        .when('/map/41',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map41"></map-chart>'
+					        })
+					        .when('/map/42',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map42"></map-chart>'
+					        })
+					        .when('/map/43',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/map43"></map-chart>'
+					        })
+					        .when('/map/SIR1',{
+					          controller: 'MapChartController',
+					          template: '<map-chart url="http://apsupervisor-dev.herokuapp.com/linee/mapSIR1"></map-chart>'
+					        })
+					    ; /* fine definizione di routeProvider */
+					};
+					angular.module('norris-nrti').config(appConfig);
 				</script>
-				<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: setBusLineOnGraphs();">
+				<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">
 				    <option value="03">Linea 03</option>
 				    <option value="05">Linea 05</option>
 				    <option value="06">Linea 06</option>
@@ -102,11 +175,7 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<div id="mapContainer">
-					<div  ng-controller="MapChartController">
-		        		<map-chart id="mappaLinea" url="http://apsupervisor-dev.herokuapp.com/linee/map03"></map-chart>
-		       		</div>
-		        </div>	
+				<div id="mapContainer" ng-view>	
 			</div>
 		</div>
 	</div>	
