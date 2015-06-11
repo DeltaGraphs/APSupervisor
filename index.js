@@ -478,7 +478,7 @@ var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1'
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
 	request.post(
-		'http://www.apsholding.it/index.php/informazioni/dov%C2%ADe%C2%ADil%C2%ADmezzo%C2%ADpubblico%C2%ADin%C2%ADtempo%C2%ADreale?option=com_mappeaps&view=posmezzi&format=raw',
+		'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw',
 		{ form: { l: linea },
 		json: true},
 		function (error, response, body) {
