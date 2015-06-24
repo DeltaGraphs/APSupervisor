@@ -521,7 +521,7 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
 }
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
-	//makeRequest(mapChartFlow,table,tableFlowName,linea);
+	makeRequest(mapChartFlow,table,tableFlowName,linea);
 }
 
 var poller=function(){
