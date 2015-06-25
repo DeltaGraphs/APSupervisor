@@ -514,7 +514,8 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
     });
         
     gunzip.on('end', function(){
-    	console.dir(json);
+    	//console.dir(json);
+        mapChartFlow.updateMovie(json);
     });
  	try{
     	response.pipe(gunzip);
@@ -548,7 +549,7 @@ var poller=function(){
 	updateLinea(mapChartFlow_43_1,table43,'flow43','43');
 	updateLinea(mapChartFlow_SIR1_1,tableSIR1,'flowSIR1','SIR1');
 };
-var myVar=setInterval(function () {poller();}, 1500);
+var myVar=setInterval(function () {poller();}, 3000);
     
 
 /*app.get('/', function (req, res) {
