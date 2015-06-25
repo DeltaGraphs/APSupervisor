@@ -23,7 +23,7 @@ app.configure(function() {
 
 // Includo e creo l'ustanza di Norris
 var Norris = require('norris-nrti');
-var norris = new Norris(app,io,'/norris','http://apsupervisor-dev.herokuapp.com');
+var norris = new Norris(app,io,'/norris','http://apsupervisor-usa.herokuapp.com');
 
 var page1=norris.createPage({
     ID:'linee',
