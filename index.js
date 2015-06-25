@@ -516,8 +516,11 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
     gunzip.on('end', function(){
     	console.dir(json);
     });
- 
-    response.pipe(gunzip);
+ 	try{
+    	response.pipe(gunzip);
+    }catch(err) {
+    	console.log('errore pipe');
+    }
 }
 
 function updateLinea(mapChartFlow,table,tableFlowName,linea){
