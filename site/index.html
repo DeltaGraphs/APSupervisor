@@ -36,12 +36,6 @@
 				var line = (pathArray[1]).split('/');
 				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
 			}
-			else{
-				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
-			}
-			if (document.getElementsByIdByTagName('map-chart')[0] !== undefined ){
-				document.getElementById('loadMap').removeChild();
-			}
 		};
 	</script>
 </head>
@@ -196,12 +190,12 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<div id="loadMap">
-					<p></p>
-				</div>
-
+				
 				<div id="mapContainer" ng-view>
-					
+					<div id="loadMap">
+						<p></p>
+					</div>
+
 		        </div>
 			</div>
 		</div>
