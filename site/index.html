@@ -13,7 +13,7 @@
 <link href="css/style.css" rel="stylesheet" />
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1lFiTPj_ZS44cGVCioem401Mvut8kJA&libraries=geometry&sensor=false"></script>
-        <script src="norris-nrti.complete.js"></script>
+        <script src="https://apsupervisor-usa.herokuapp.com/norris/dist/norris-nrti.complete.js"></script>
 <!-- Theme skin -->
 <link href="skins/default.css" rel="stylesheet" />
 
@@ -21,7 +21,11 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <style>
+	#mappaLinea :first-child + div{
+	    width: 100% !important;
+	}
+	</style>
 </head>
 <body ng-app='norris-nrti'>
 
@@ -31,15 +35,15 @@
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                    </button>-->
                     <a class="navbar-brand" href="index.html"><span>APSupervisor</span> i bus di Padova in real-time</a>
                 </div>
-                <div class="navbar-collapse collapse ">
-                    <!--<ul class="nav navbar-nav">
+                <!--<div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
                         <li class="active"><a href="index.html">Home</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Features <b class=" icon-angle-down"></b></a>
@@ -52,8 +56,8 @@
                         <li><a href="portfolio.html">Portfolio</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                    </ul>-->
-                </div>
+                    </ul>
+                </div>-->
             </div>
         </div>
 	</header>
@@ -150,7 +154,7 @@
 				</script>
 				<!-- <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">-->
 				 <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.reload(); location.assign('http://apsupervisor-usa.herokuapp.com/#/map/' + document.getElementById('lineaBus').value);">
-					<option value="Scegli" selected="selected">Scegli linea</option>
+				    <option value="" selected="selected">Scegli la linea...</option>
 				    <option value="03">Linea 03</option>
 				    <option value="05">Linea 05</option>
 				    <option value="06">Linea 06</option>
@@ -173,6 +177,7 @@
 				  </select>
 				</p>
 				<div id="mapContainer" ng-view>
+					
 		        </div>
 			</div>
 		</div>
@@ -203,29 +208,29 @@
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Pages</h5>
+					<!--<h5 class="widgetheading">Pages</h5>
 					<ul class="link-list">
 						<li><a href="#">Press release</a></li>
 						<li><a href="#">Terms and conditions</a></li>
 						<li><a href="#">Privacy policy</a></li>
 						<li><a href="#">Career center</a></li>
 						<li><a href="#">Contact us</a></li>
-					</ul>
+					</ul>-->
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
+					<!--<h5 class="widgetheading">Latest posts</h5>
 					<ul class="link-list">
 						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
 						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
 						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
+					</ul>-->
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading">Flickr photostream</h5>
+					<!--<h5 class="widgetheading">Flickr photostream</h5>-->
 					<div class="clear">
 					</div>
 				</div>
@@ -241,9 +246,6 @@
 							<span>&copy; APSupervisor 2015 All right reserved. By </span><a href="https://github.com/DeltaGraphs" target="_blank">Deltagraphs</a>
 						</p>
 					</div>
-				</div>
-				<div class="col-lg-6">
-					<p>CSCS</p>
 				</div>
 			</div>
 		</div>
