@@ -36,6 +36,10 @@
 				var line = (pathArray[1]).split('/');
 				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
 			}
+			else{
+				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
+			}
+			
 		};
 	</script>
 </head>
@@ -191,11 +195,11 @@
 				  </select>
 				</p>
 				
+
 				<div id="mapContainer" ng-view>
 					<div id="loadMap">
 						<p></p>
 					</div>
-
 		        </div>
 			</div>
 		</div>
