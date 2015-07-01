@@ -1,43 +1,49 @@
 /*jshint node: true, -W106 */
 'use strict';
+try{
+    var express = require('express');
+    var app = express();
+    var http = require('http');
+    var server = null;
 
-var express = require('express');
-var app = express();
-var http = require('http');
-var server = null;
 
+    var domain = require('domain');
+    var serverDomain = domain.create();
 
-var domain = require('domain');
-var serverDomain = domain.create();
+    // Domain for the server
+    serverDomain.run(function () {
 
-// Domain for the server
-serverDomain.run(function () {
+      server=http.createServer(function (req, res) {
+          try{
+            var reqd = domain.create()
+            reqd.add(req)
+            reqd.add(res)
 
-  server=http.createServer(function (req, res) {
+            // On error dispose of the domain
+            reqd.on('error', function (error) {
+              console.error('Error', error.code, error.message, req.url)
+              reqd.dispose()
+            })
 
-    var reqd = domain.create()
-    reqd.add(req)
-    reqd.add(res)
+            // Pass the request to express
+            app(req, res)
+        }catch(err) {
+            console.log('##################errore SERVER '+err);
+        }
 
-    // On error dispose of the domain
-    reqd.on('error', function (error) {
-      console.error('Error', error.code, error.message, req.url)
-      reqd.dispose()
+      }).listen(1337, '127.0.0.1')
+
     })
 
-    // Pass the request to express
-    app(req, res)
 
-  }).listen(1337, '127.0.0.1')
-
-})
+    var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
+    var request = require('request');
+    var zlib = require('zlib');
 
 
-var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
-var request = require('request');
-var zlib = require('zlib');
-
-
+}catch(err) {
+    console.log('##################errore LIBRERIE '+err);
+}
 
 
 /*
@@ -512,7 +518,7 @@ try{
     var tableSIR1 = page1.createTable(propSIR1);
     var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1', columnKeys:['IdMezzo', 'capolinea']});
 }catch(err) {
-    console.log('##################errore NORRIS');
+    console.log('##################errore NORRIS '+err);
 }
 
 function makeRequest(mapChartFlow,table,tableFlowName,linea){
