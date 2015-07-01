@@ -41,8 +41,8 @@
 			}
 			var flag = false;
 			while (!flag){
-				if (document.getElementsByTagName('map-chart') !== undefined){
-					document.getElementById('loadMap').removeChild();
+				if (document.getElementsByTagName('map-chart')[0] !== undefined){
+					document.getElementById('loadMap').removeChild('p');
 					flag = true;
 				}
 			}
