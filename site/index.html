@@ -28,7 +28,6 @@
 	</style>
 	<script>
 		window.onload = function(){
-			console.log(document.URL);
 			var pathArray = document.URL.split('#');
 			for (var i=0; i<pathArray.length; i++){
 				console.log(pathArray[i]);
@@ -38,7 +37,7 @@
 				document.getElementById('loadMap').innerHTML = 'Loading bus line ' + line[1] + ' ...';
 			}
 			else{
-				document.getElementById('loadMap').innerHTML = 'Loading bus line 22 ...';
+				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
 			}
 		};
 	</script>
@@ -88,7 +87,7 @@
 					    $routeProvider /* inizio definizione di routeProvider */
 					    .when('/' ,{
 					      controller: 'MapChartController',
-				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22" onload="javascript: document.getElementById(\'mapLoad\').innerHTML = \'\'"></map-chart>'
+				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22" onload="javascript: document.getElementById(\'mapLoad\').removeChild();"></map-chart>'
 				    	})
 				        .when('/map/03',{
 				          controller: 'MapChartController',
@@ -194,7 +193,9 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<div id="loadMap"></div>
+				<div id="loadMap">
+					<p></p>
+				</div>
 
 				<div id="mapContainer" ng-view>
 					
