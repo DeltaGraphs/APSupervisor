@@ -34,10 +34,10 @@
 			}
 			if(pathArray[1] !== undefined && pathArray[1] !== '/'){
 				var line = (pathArray[1]).split('/');
-				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
+				document.getElementById('loadMap').getElementsByTagName('p')[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
 			}
 			else{
-				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
+				document.getElementById('loadMap').getElementsByTagName('p')[0].innerHTML = 'Loading bus line 22 ...';
 			}
 			
 		};
