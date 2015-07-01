@@ -28,7 +28,7 @@
 	</style>
 	<script>
 		window.onload = function(){
-			console.log(document.URL.pathname);
+			console.log(document.URL);
 			//if (location.href.path){
 				document.getElementById('loadMap').innerHTML = 'Loading bus line ...';
 			//}
@@ -79,7 +79,8 @@
 					var appConfig = function($routeProvider) {
 					    $routeProvider /* inizio definizione di routeProvider */
 					    .when('/' ,{
-
+					      controller: 'MapChartController',
+				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22"></map-chart>'
 				    	})
 				        .when('/map/03',{
 				          controller: 'MapChartController',
