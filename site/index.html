@@ -152,9 +152,6 @@
 					};
 					angular.module('norris-nrti').config(appConfig);
 
-					function loadBus(){
-						document.getElementById('loadMap').innerHTML = 'Loading bus line ...';
-					}
 				</script>
 				<!-- <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">-->
 				 <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.assign('./#/map/' + document.getElementById('lineaBus').value); location.reload();">
@@ -180,9 +177,8 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<p onload="loadBus()">
-					<div id="loadMap">
-					</div
+				<p onload="javascript: document.getElementById('loadMap').innerHTML = 'Loading bus line ...'">
+					<div id="loadMap"></div>
 				</p>
 				<div id="mapContainer" ng-view>
 					
