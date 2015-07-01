@@ -81,10 +81,7 @@ try{
             title: 'APS test',
             height: 600,
             width: 1000,
-            enableLegend: true,
-            legend: {
-                position: 'NE',
-            },
+            enableLegend: false,
             latitude: 45.4113311,
             longitude: 11.8876318,
             mapType: 'roadMap',
