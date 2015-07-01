@@ -88,7 +88,7 @@
 					    $routeProvider /* inizio definizione di routeProvider */
 					    .when('/' ,{
 					      controller: 'MapChartController',
-				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22"></map-chart>'
+				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22" onload="javascript: document.getElementById(\'mapLoad\').innerHTML = \'\'"></map-chart>'
 				    	})
 				        .when('/map/03',{
 				          controller: 'MapChartController',
