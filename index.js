@@ -533,10 +533,13 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
 	    headers: headers,
 	    form: { 'l': linea }
 	}
-
-	var response = request(options);
-    //console.log('RESPONSE');
-    gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
+	try{
+		var response = request(options);
+	    //console.log('RESPONSE');
+	    gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
+	}catch(err) {
+    	console.log('##################errore RICHIESTA');
+    }
 }
  
 function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
@@ -555,7 +558,7 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
  	try{
     	response.pipe(gunzip);
     }catch(err) {
-    	console.log('errore pipe');
+    	console.log('##################errore pipe');
     }
 }
 
