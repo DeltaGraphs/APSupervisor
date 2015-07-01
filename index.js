@@ -578,6 +578,11 @@ app.use(function(req, res, next) {
 	res.status(404).send('404 Not Found');
 });
 
+app.use(function(err,req, res, next) {
+    if(err)console.log(err);
+    next();
+});
+
 //app.listen(3000); // si mette in ascolto su http://127.0.0.1:3000/
 var port = process.env.PORT || 3000;
 server.listen(port);
