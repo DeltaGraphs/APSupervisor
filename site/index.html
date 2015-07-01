@@ -42,7 +42,8 @@
 			var flag = false;
 			while (!flag){
 				if (document.getElementsByTagName('map-chart')[0] !== undefined){
-					document.getElementById('loadMap').removeChild('p');
+					var p = document.getElementById('loadMap').getElementsByTagName('p')[0];
+					document.getElementById('loadMap').removeChild(p);
 					flag = true;
 				}
 			}
