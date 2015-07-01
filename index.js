@@ -15,25 +15,25 @@ try{
 
       server=http.createServer(function (req, res) {
           try{
-            var reqd = domain.create()
-            reqd.add(req)
-            reqd.add(res)
+            var reqd = domain.create();
+            reqd.add(req);
+            reqd.add(res);
 
             // On error dispose of the domain
             reqd.on('error', function (error) {
-              console.error('Error', error.code, error.message, req.url)
-              reqd.dispose()
+              console.error('Error', error.code, error.message, req.url);
+              reqd.dispose();
             })
 
             // Pass the request to express
-            app(req, res)
+            app(req, res);
         }catch(err) {
             console.log('##################errore SERVER '+err);
         }
 
-      }).listen(1337, '127.0.0.1')
+      }).listen(1337, '127.0.0.1');
 
-    })
+    });
 
 
     var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
