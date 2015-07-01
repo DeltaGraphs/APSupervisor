@@ -28,7 +28,7 @@
 	</style>
 	<script>
 		window.onload = function(){
-			var pathArray = document.URL.split('#');
+			/*var pathArray = document.URL.split('#');
 			for (var i=0; i<pathArray.length; i++){
 				console.log(pathArray[i]);
 			}
@@ -38,7 +38,7 @@
 			}
 			else{
 				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
-			}
+			}*/
 			var flag = false;
 			while (!flag){
 				if (document.getElementsByTagName('map-chart')[0] !== undefined){
@@ -202,7 +202,7 @@
 				  </select>
 				</p>
 				<div id="loadMap">
-					<p></p>
+					<p>LoaDing bus line ...</p>
 				</div>
 
 				<div id="mapContainer" ng-view>
