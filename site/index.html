@@ -29,9 +29,17 @@
 	<script>
 		window.onload = function(){
 			console.log(document.URL);
-			//if (location.href.path){
-				document.getElementById('loadMap').innerHTML = 'Loading bus line ...';
-			//}
+			var pathArray = document.URL.split('#');
+			for (var i=0; i<pathArray.length; i++){
+				console.log(pathArray[i]);
+			}
+			if(pathArray[1] !== undefined && pathArray[1] !== '/'){
+				var line = (pathArray[1]).split('/');
+				document.getElementById('loadMap').innerHTML = 'Loading bus line ' + line[1] + ' ...';
+			}
+			else{
+				document.getElementById('loadMap').innerHTML = 'Loading bus line 22 ...';
+			}
 		};
 	</script>
 </head>
