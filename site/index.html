@@ -34,12 +34,18 @@
 			}
 			if(pathArray[1] !== undefined && pathArray[1] !== '/'){
 				var line = (pathArray[1]).split('/');
-				document.getElementById('loadMap').getElementsByTagName('p')[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
+				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
 			}
 			else{
-				document.getElementById('loadMap').getElementsByTagName('p')[0].innerHTML = 'Loading bus line 22 ...';
+				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
 			}
-			
+			var flag = false;
+			while (!flag){
+				if (document.getElementsByTagName('map-chart') !== undefined){
+					document.getElementById('loadMap').removeChild();
+					flag = true;
+				}
+			}
 		};
 	</script>
 </head>
@@ -194,12 +200,12 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				
+				<div id="loadMap">
+					<p></p>
+				</div>
 
 				<div id="mapContainer" ng-view>
-					<div id="loadMap">
-						<p></p>
-					</div>
+					
 		        </div>
 			</div>
 		</div>
