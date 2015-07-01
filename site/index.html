@@ -26,8 +26,13 @@
 	    width: 100% !important;
 	}
 	</style>
+	<script>
+		window.onload = function(){
+			document.getElementById('loadMap').innerHTML = 'Loading bus line ...'; 
+		};
+	</script>
 </head>
-<body ng-app='norris-nrti' onload="document.getElementById('loadMap').innerHTML = 'Loading bus line ...'; ">
+<body ng-app='norris-nrti'>
 
 <div id="wrapper">
 	<!-- start header -->
