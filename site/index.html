@@ -153,7 +153,7 @@
 					angular.module('norris-nrti').config(appConfig);
 				</script>
 				<!-- <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">-->
-				 <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.reload(); location.assign('http://apsupervisor-usa.herokuapp.com/#/map/' + document.getElementById('lineaBus').value);">
+				 <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.assign('http://apsupervisor-usa.herokuapp.com/#/map/' + document.getElementById('lineaBus').value); location.reload();">
 				    <option value="" selected="selected">Scegli la linea...</option>
 				    <option value="03">Linea 03</option>
 				    <option value="05">Linea 05</option>
