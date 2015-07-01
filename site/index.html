@@ -34,10 +34,13 @@
 			}
 			if(pathArray[1] !== undefined && pathArray[1] !== '/'){
 				var line = (pathArray[1]).split('/');
-				document.getElementById('loadMap').innerHTML = 'Loading bus line ' + line[1] + ' ...';
+				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
 			}
 			else{
 				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
+			}
+			if (document.getElementByIdByTagName('map-chart')[0] !== undefined ){
+				document.getElementById('loadMap').removeChild();
 			}
 		};
 	</script>
@@ -87,7 +90,7 @@
 					    $routeProvider /* inizio definizione di routeProvider */
 					    .when('/' ,{
 					      controller: 'MapChartController',
-				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22" onload="javascript: document.getElementById(\'mapLoad\').removeChild();"></map-chart>'
+				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22"></map-chart>'
 				    	})
 				        .when('/map/03',{
 				          controller: 'MapChartController',
