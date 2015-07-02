@@ -573,25 +573,25 @@ function updateLinea(mapChartFlow,tableFlow,linea){
 }
 
 var poller=function(){
-	updateLinea(mapChartFlow_03_1,table03,'03','03');
-	updateLinea(mapChartFlow_05_1,table05,'05','05');
-	updateLinea(mapChartFlow_06_1,table06,'06','06');
-	updateLinea(mapChartFlow_07_1,table07,'07','07');
-	updateLinea(mapChartFlow_09_1,table09,'09','09');
-	updateLinea(mapChartFlow_1_1,table1,'1','1');
-	updateLinea(mapChartFlow_10_1,table10,'10','10');
-	updateLinea(mapChartFlow_11_1,table11,'11','11');
-	updateLinea(mapChartFlow_12_1,table12,'12','12');
-	updateLinea(mapChartFlow_13_1,table13,'13','13');
-	updateLinea(mapChartFlow_15_1,table15,'15','15');
-	updateLinea(mapChartFlow_16_1,table16,'16','16');
-	updateLinea(mapChartFlow_18_1,table18,'18','18');
-	updateLinea(mapChartFlow_22_1,table22,'22','22');
-	updateLinea(mapChartFlow_24_1,table24,'24','24');
-	updateLinea(mapChartFlow_41_1,table41,'41','41');
-	updateLinea(mapChartFlow_42_1,table42,'42','42');
-	updateLinea(mapChartFlow_43_1,table43,'43','43');
-	updateLinea(mapChartFlow_SIR1_1,tableSIR1,'SIR1','SIR1');
+	updateLinea(mapChartFlow_03_1,tableFlow_03,'03','03');
+	updateLinea(mapChartFlow_05_1,tableFlow_05,'05','05');
+	updateLinea(mapChartFlow_06_1,tableFlow_06,'06','06');
+	updateLinea(mapChartFlow_07_1,tableFlow_07,'07','07');
+	updateLinea(mapChartFlow_09_1,tableFlow_09,'09','09');
+	updateLinea(mapChartFlow_1_1,tableFlow_1,'1','1');
+	updateLinea(mapChartFlow_10_1,tableFlow_10,'10','10');
+	updateLinea(mapChartFlow_11_1,tableFlow_11,'11','11');
+	updateLinea(mapChartFlow_12_1,tableFlow_12,'12','12');
+	updateLinea(mapChartFlow_13_1,tableFlow_13,'13','13');
+	updateLinea(mapChartFlow_15_1,tableFlow_15,'15','15');
+	updateLinea(mapChartFlow_16_1,tableFlow_16,'16','16');
+	updateLinea(mapChartFlow_18_1,tableFlow_18,'18','18');
+	updateLinea(mapChartFlow_22_1,tableFlow_22,'22','22');
+	updateLinea(mapChartFlow_24_1,tableFlow_24,'24','24');
+	updateLinea(mapChartFlow_41_1,tableFlow_41,'41','41');
+	updateLinea(mapChartFlow_42_1,tableFlow_42,'42','42');
+	updateLinea(mapChartFlow_43_1,tableFlow_43,'43','43');
+	updateLinea(mapChartFlow_SIR1_1,tableFlow_SIR1,'SIR1','SIR1');
 };
 var myVar=setInterval(function () {poller();}, 3000);
     
