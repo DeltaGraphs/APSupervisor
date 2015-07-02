@@ -375,8 +375,8 @@ try{
 		sort: {column: ['BusID'], ordering: ['ASC']},
         appearance: {
             headers: {
-                textColor: '#000',
-                backgroundColor: '#EAEAEA'
+                textColor: '#fff',
+                backgroundColor: '#68a4c4'
             },
             rowEven: {
                 textColor: '#000',
