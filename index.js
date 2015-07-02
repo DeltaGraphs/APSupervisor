@@ -38,7 +38,7 @@ try{
         name: 'Linee Autobus',
         description: 'Pagina contenente le mappe dalla posizione attuale'+
             ' degli autobus delle linee dell\'APS-Bus Padova',
-        graphsPerRow: 2
+        graphsPerRow: 1
         }
     );
     console.log('Pagina inserita: '+page1);
