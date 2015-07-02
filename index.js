@@ -389,6 +389,7 @@ try{
 
     var tableProps = {
         headers: ['Bus ID', 'Terminus'],
+		sort: {column: ['IdMezzo'], ordering: ['ASC']},
         appearance: {
             headers: {
                 textColor: '#FFF',
