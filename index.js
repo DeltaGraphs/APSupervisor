@@ -527,13 +527,15 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
     });
         
     gunzip.on('end', function(){
-    	console.dir(json);
+    	//console.dir(json);
         mapChartFlow.updateMovie(JSON.parse(json));
 		table.deleteAllFlows();
 		table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
 		var records = JSON.parse(json);
-		for(var i=0; i < records.length; i++)
+		for(var i=0; i < records.length; i++) {
+			console.dir(json);
 			table.addRecord('flow'+tableFlowNum, records[i]);
+		}
     });
  	try{
     	response.pipe(gunzip);
