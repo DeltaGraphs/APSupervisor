@@ -531,8 +531,8 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
         mapChartFlow.updateMovie(JSON.parse(json));
 		table.deleteAllFlows();
 		table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
-		records = JSON.parse(json);
-		for(i=0; i < records.length; i++)
+		var records = JSON.parse(json);
+		for(var i=0; i < records.length; i++)
 			table.addRecord('flow'+tableFlowNum, records[i]);
     });
  	try{
