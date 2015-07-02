@@ -377,7 +377,7 @@ try{
 			border: {
 				width: 1,
 				color: '#fff'
-			}
+			},
             headers: {
                 textColor: '#fff',
                 backgroundColor: '#68a4c4'
