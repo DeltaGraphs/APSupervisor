@@ -508,7 +508,7 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
 	    method: 'POST',
 	    headers: headers,
 	    form: { 'l': linea },
-		secureOptions: constants.SSL_OP_NO_TLSv1_2
+		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	}
 	try{
 		var response = request(options);
