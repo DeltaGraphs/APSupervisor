@@ -376,7 +376,7 @@ try{
         appearance: {
             headers: {
                 textColor: '#000',
-                backgroundColor: '#68AC4'
+                backgroundColor: '#EAEAEA'
             },
             rowEven: {
                 textColor: '#000',
