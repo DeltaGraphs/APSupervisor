@@ -14,7 +14,7 @@ var Norris = require('norris-nrti');
 
 try{
 
-    var norris = new Norris(app,io,'/norris','http://localhost:3000');
+    var norris = new Norris(app,io,'/norris','http://apsupervisor-usa.herokuapp.com');
 
     var page1=norris.createPage({
         ID:'linee',
