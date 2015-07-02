@@ -404,7 +404,7 @@ try{
             }
         }
     };
-
+	console.log('Creating tables');
     var prop03 = tableProps;
     prop03.ID = 'tab03';
     prop03.title = 'linea 03';
@@ -517,7 +517,7 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
     }
 }
  
-function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
+function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
  	//console.log('gunzipJSON');
     var gunzip = zlib.createGunzip();
     var json = "";
@@ -529,6 +529,9 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
     gunzip.on('end', function(){
     	//console.dir(json);
         mapChartFlow.updateMovie(JSON.parse(json));
+		table.deleteAllFlows();
+		table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '++tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
+		table.addRecord('flow'+tableFlowNum, {IdMezzo: 'prova', capolinea: 'prova'}
     });
  	try{
     	response.pipe(gunzip);
@@ -537,30 +540,30 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowName,linea){
     }
 }
 
-function updateLinea(mapChartFlow,table,tableFlowName,linea){
-	makeRequest(mapChartFlow,table,tableFlowName,linea);
+function updateLinea(mapChartFlow,table,tableFlowNum,linea){
+	makeRequest(mapChartFlow,table,tableFlowNum,linea);
 }
 
 var poller=function(){
-	updateLinea(mapChartFlow_03_1,table03,'flow03','03');
-	updateLinea(mapChartFlow_05_1,table05,'flow05','05');
-	updateLinea(mapChartFlow_06_1,table06,'flow06','06');
-	updateLinea(mapChartFlow_07_1,table07,'flow07','07');
-	updateLinea(mapChartFlow_09_1,table09,'flow09','09');
-	updateLinea(mapChartFlow_1_1,table1,'flow1','1');
-	updateLinea(mapChartFlow_10_1,table10,'flow10','10');
-	updateLinea(mapChartFlow_11_1,table11,'flow11','11');
-	updateLinea(mapChartFlow_12_1,table12,'flow12','12');
-	updateLinea(mapChartFlow_13_1,table13,'flow13','13');
-	updateLinea(mapChartFlow_15_1,table15,'flow15','15');
-	updateLinea(mapChartFlow_16_1,table16,'flow16','16');
-	updateLinea(mapChartFlow_18_1,table18,'flow18','18');
-	updateLinea(mapChartFlow_22_1,table22,'flow22','22');
-	updateLinea(mapChartFlow_24_1,table24,'flow24','24');
-	updateLinea(mapChartFlow_41_1,table41,'flow41','41');
-	updateLinea(mapChartFlow_42_1,table42,'flow42','42');
-	updateLinea(mapChartFlow_43_1,table43,'flow43','43');
-	updateLinea(mapChartFlow_SIR1_1,tableSIR1,'flowSIR1','SIR1');
+	updateLinea(mapChartFlow_03_1,table03,'03','03');
+	updateLinea(mapChartFlow_05_1,table05,'05','05');
+	updateLinea(mapChartFlow_06_1,table06,'06','06');
+	updateLinea(mapChartFlow_07_1,table07,'07','07');
+	updateLinea(mapChartFlow_09_1,table09,'09','09');
+	updateLinea(mapChartFlow_1_1,table1,'1','1');
+	updateLinea(mapChartFlow_10_1,table10,'10','10');
+	updateLinea(mapChartFlow_11_1,table11,'11','11');
+	updateLinea(mapChartFlow_12_1,table12,'12','12');
+	updateLinea(mapChartFlow_13_1,table13,'13','13');
+	updateLinea(mapChartFlow_15_1,table15,'15','15');
+	updateLinea(mapChartFlow_16_1,table16,'16','16');
+	updateLinea(mapChartFlow_18_1,table18,'18','18');
+	updateLinea(mapChartFlow_22_1,table22,'22','22');
+	updateLinea(mapChartFlow_24_1,table24,'24','24');
+	updateLinea(mapChartFlow_41_1,table41,'41','41');
+	updateLinea(mapChartFlow_42_1,table42,'42','42');
+	updateLinea(mapChartFlow_43_1,table43,'43','43');
+	updateLinea(mapChartFlow_SIR1_1,tableSIR1,'SIR1','SIR1');
 };
 var myVar=setInterval(function () {poller();}, 3000);
     
