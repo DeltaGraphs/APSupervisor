@@ -498,7 +498,7 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 		var response = request(options);
 		var response = request(options, function (error, response, body) {
  
-			 if (!error){
+			 if (!error && !response.statusCode == 200){
 				gunzipJSON(response,mapChartFlow,tableFlow,linea);
 			}
 		 
