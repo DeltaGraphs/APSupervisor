@@ -498,14 +498,14 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 		var response = request(options);
 		var response = request(options, function (error, response, body) {
  
-			 if (error){
-				console.log("error######");
-			 }
+			 if (!error){
+				gunzipJSON(response,mapChartFlow,tableFlow,linea);
+			}
 		 
 		 });
 	    //console.log('RESPONSE');
 	    //gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
-		gunzipJSON(response,mapChartFlow,tableFlow,linea);
+		//gunzipJSON(response,mapChartFlow,tableFlow,linea);
 	}catch(err) {
     	console.log('##################errore RICHIESTA');
     }
