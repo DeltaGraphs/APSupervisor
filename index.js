@@ -548,7 +548,7 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 					found = true;
 				}
 				if(!found) {
-					tableFlow.addRecord(records[i];
+					tableFlow.addRecord(records[i]);
 				}
 			}			
 			//table.addRecord('flow'+tableFlowNum, records[i]);
