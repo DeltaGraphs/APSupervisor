@@ -540,24 +540,20 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 		var records = JSON.parse(json);
 		var flowRecs = tableFlow.getData();
 		for(var i=0; i < records.length; i++) {
-			console.log('parsing records');
 			var found = false;
 			for(var j=0; j < flowRecs.length && !found; j++) {
 				if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
 					tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
 					flowRecs.splice(j, 1);
 					found = true;
-					console.log('found');
 				}
 			}		
 			if(!found) {
-				console.log('add this record you fucking twat');
 				tableFlow.addRecord(records[i]);
 			}	
 			//table.addRecord('flow'+tableFlowNum, records[i]);
 		}
 		for(var k=0; k < flowRecs.length; k++){
-			console.log('setting records to arrived');
 			flowRecs[k].capolinea = "ARRIVED";
 			flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
 			tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
