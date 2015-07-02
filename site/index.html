@@ -13,7 +13,7 @@
 <link href="css/style.css" rel="stylesheet" />
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI1lFiTPj_ZS44cGVCioem401Mvut8kJA&libraries=geometry&sensor=false"></script>
-        <script src="http://apsupervisor-usa.herokuapp.com/norris/dist/norris-nrti.complete.js"></script>
+        <script src="https://apsupervisor-usa.herokuapp.com/norris/dist/norris-nrti.complete.js"></script>
 <!-- Theme skin -->
 <link href="skins/default.css" rel="stylesheet" />
 
@@ -26,29 +26,6 @@
 	    width: 100% !important;
 	}
 	</style>
-	<script>
-		window.onload = function(){
-			/*var pathArray = document.URL.split('#');
-			for (var i=0; i<pathArray.length; i++){
-				console.log(pathArray[i]);
-			}
-			if(pathArray[1] !== undefined && pathArray[1] !== '/'){
-				var line = (pathArray[1]).split('/');
-				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line ' + line[2] + ' ...';
-			}
-			else{
-				document.getElementById('loadMap').children[0].innerHTML = 'Loading bus line 22 ...';
-			}*/
-			var flag = false;
-			while (!flag){
-				if (document.getElementsByTagName('map-chart')[0] !== undefined){
-					var p = document.getElementById('loadMap').getElementsByTagName('p')[0];
-					document.getElementById('loadMap').removeChild(p);
-					flag = true;
-				}
-			}
-		};
-	</script>
 </head>
 <body ng-app='norris-nrti'>
 
@@ -91,11 +68,10 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<script type="text/javascript">
-					var appConfig = function($routeProvider) {
-					    $routeProvider /* inizio definizione di routeProvider */
+					/*var appConfig = function($routeProvider) {
+					    $routeProvider
 					    .when('/' ,{
-					      controller: 'MapChartController',
-				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map22"></map-chart>'
+
 				    	})
 				        .when('/map/03',{
 				          controller: 'MapChartController',
@@ -172,13 +148,38 @@
 				        .when('/map/SIR1',{
 				          controller: 'MapChartController',
 				          template: '<map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/mapSIR1"></map-chart>'
-				        }); /* fine definizione di routeProvider */
-					};
-					angular.module('norris-nrti').config(appConfig);
+				        })
+					};*/
+					var appConfig = function($routeProvider) {
+					    $routeProvider
+					    .when('/' ,{
 
+				    	})
+				        .when('/map/:id',{
+				          controller: 'LineController',
+				          template: '<line-bus></line-bus>'
+				        })
+				    };
+					angular.module('norris-nrti').config(appConfig);
+					angular.module('norris-nrti').controller('LineController', ['$scope', '$routeParams', function($scope, $routeParams){
+						$scope.id = $routeParams.id;
+					}]);
+					angular.module('norris-nrti').directive('lineBus', function($compile){
+						return {
+							restrict: 'E', // direttiva di tipo elemento (tag)
+					        replace: false,
+					        link: function(scope, element, attrs){
+								var html = '<div ng-controller="MapChartController"><map-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/map' + scope.id + '"></map-chart></div><br /><div ng-controller="TableController"><table-chart url="http://apsupervisor-usa.herokuapp.com/norris/linee/tab' + scope.id + '"></table-chart></div>';
+
+								var compiled = $compile(html)(scope);
+	               				element.append(compiled);
+							}
+						}
+						
+					});
 				</script>
-				<!-- <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">-->
-				 <p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.assign('./#/map/' + document.getElementById('lineaBus').value); location.reload();">
+				<!--<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.href = '#/map/' + document.getElementById('lineaBus').value;">-->
+				<p>Seleziona la linea che desideri: <select id="lineaBus" class="selectpicker" onchange="javascript: location.assign('http://apsupervisor-usa.herokuapp.com/#/map/' + document.getElementById('lineaBus').value); location.reload();">
 				    <option value="" selected="selected">Scegli la linea...</option>
 				    <option value="03">Linea 03</option>
 				    <option value="05">Linea 05</option>
@@ -201,10 +202,6 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
-				<div id="loadMap">
-					<p>LoaDing bus line ...</p>
-				</div>
-
 				<div id="mapContainer" ng-view>
 					
 		        </div>
@@ -212,17 +209,7 @@
 		</div>
 	</div>	
 
-	</section>
-	<section class="callaction">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<p>TABELLA</p>
-			</div>
-		</div>
-	</div>
-	</section>
-	
+	</section>	
 	<footer>
 	<div class="container">
 		<div class="row">
