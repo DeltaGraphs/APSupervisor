@@ -388,8 +388,8 @@ try{
     var myVar=setInterval(function () {repeat();}, 5000);
 
     var tableProps = {
-        headers: ['Bus ID', 'Terminus'],
-		sort: {column: ['IdMezzo'], ordering: ['ASC']},
+        headers: ['BusID', 'Terminus'],
+		sort: {column: ['BusID'], ordering: ['ASC']},
         appearance: {
             headers: {
                 textColor: '#FFF',
@@ -487,7 +487,8 @@ try{
     console.log('##################errore NORRIS '+err);
 }
 
-function makeRequest(mapChartFlow,table,tableFlowName,linea){
+//function makeRequest(mapChartFlow,table,tableFlowName,linea){
+function makeRequest(mapChartFlow,tableFlow,linea){
     
     var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
 	var headers = { 
@@ -513,13 +514,15 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
 	try{
 		var response = request(options);
 	    //console.log('RESPONSE');
-	    gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
+	    //gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
+		gunzipJSON(response,mapChartFlow,tableFlow,linea);
 	}catch(err) {
     	console.log('##################errore RICHIESTA');
     }
 }
  
-function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
+//function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
+function gunzipJSON(response,mapChartFlow,tableFlow,linea){
  	//console.log('gunzipJSON');
 	try{
     var gunzip = zlib.createGunzip();
@@ -532,12 +535,28 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
     gunzip.on('end', function(){
     	//console.dir(json);
         mapChartFlow.updateMovie(JSON.parse(json));
-		table.deleteAllFlows();
-		table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
+		//table.deleteAllFlows();
+		//table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
 		var records = JSON.parse(json);
+		flowRecs = tableFlow.getData();
 		for(var i=0; i < records.length; i++) {
-			//console.dir(json);
-			table.addRecord('flow'+tableFlowNum, records[i]);
+			var found = false;
+			for(var j=0; j < flowRecs.length && !found; j++) {
+				if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
+					tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
+					flowRecs.splice(j, 1);
+					found = true;
+				}
+				if(!found) {
+					tableFlow.addRecord(records[i];
+				}
+			}			
+			//table.addRecord('flow'+tableFlowNum, records[i]);
+		}
+		for(var k=0; k < flowRecs.length; k++){
+			flowRecs[k].capolinea = "ARRIVED";
+			flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
+			tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
 		}
     });
  	
@@ -547,8 +566,10 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
     }
 }
 
-function updateLinea(mapChartFlow,table,tableFlowNum,linea){
-	makeRequest(mapChartFlow,table,tableFlowNum,linea);
+//function updateLinea(mapChartFlow,table,tableFlowNum,linea){
+function updateLinea(mapChartFlow,tableFlow,linea){
+	//makeRequest(mapChartFlow,table,tableFlowNum,linea);
+	makeRequest(mapChartFlow,tableFlow,linea);
 }
 
 var poller=function(){
