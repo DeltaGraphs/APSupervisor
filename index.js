@@ -549,11 +549,11 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 					found = true;
 					console.log('found');
 				}
-				if(!found) {
-					console.log('adding record');
-					tableFlow.addRecord(records[i]);
-				}
-			}			
+			}		
+			if(!found) {
+				console.log('add this record you fucking twat');
+				tableFlow.addRecord(records[i]);
+			}	
 			//table.addRecord('flow'+tableFlowNum, records[i]);
 		}
 		for(var k=0; k < flowRecs.length; k++){
