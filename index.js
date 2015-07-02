@@ -4,34 +4,17 @@ var express = require('express');
 var app = express();
 var http = require('http');
 var server = http.createServer(app);
-var io = require('socket.io')(server);
-
-
-   // var io = require('socket.io')(server, {'transports': ['websocket', 'polling']});
-    var request = require('request');
-    var zlib = require('zlib');
-
-/*
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-};
-app.configure(function() {
-    app.use(allowCrossDomain);
-    //some other code
-});
-*/
-
-
-
+//var io = require('socket.io')(server);
+var io = require('socket.io')(server, {transports: ['websocket', 'polling', 'flashsocket']});
+var request = require('request');
+var zlib = require('zlib');
 
 // Includo e creo l'ustanza di Norris
 var Norris = require('norris-nrti');
 
 try{
-    var norris = new Norris(app,io,'/norris','http://apsupervisor-usa.herokuapp.com');
+
+    var norris = new Norris(app,io,'/norris','http://localhost:3000');
 
     var page1=norris.createPage({
         ID:'linee',
