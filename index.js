@@ -541,17 +541,16 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 		var flowRecs = tableFlow.getData();
 		for(var i=0; i < records.length; i++) {
 			console.log('parsing records');
-			console.log(records.length);
 			var found = false;
 			for(var j=0; j < flowRecs.length && !found; j++) {
 				if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
 					tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
 					flowRecs.splice(j, 1);
 					found = true;
+					console.log('found');
 				}
 				if(!found) {
 					console.log('adding record');
-					console.log(records.length);
 					tableFlow.addRecord(records[i]);
 				}
 			}			
@@ -559,7 +558,6 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 		}
 		for(var k=0; k < flowRecs.length; k++){
 			console.log('setting records to arrived');
-			console.log(flowRecs.length);
 			flowRecs[k].capolinea = "ARRIVED";
 			flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
 			tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
