@@ -520,9 +520,10 @@ function makeRequest(mapChartFlow,table,tableFlowName,linea){
  
 function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
  	//console.log('gunzipJSON');
+	try{
     var gunzip = zlib.createGunzip();
     var json = "";
- 
+	
     gunzip.on('data', function(data){
         json += data.toString();
     });
@@ -534,11 +535,11 @@ function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
 		table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
 		var records = JSON.parse(json);
 		for(var i=0; i < records.length; i++) {
-			console.dir(json);
+			//console.dir(json);
 			table.addRecord('flow'+tableFlowNum, records[i]);
 		}
     });
- 	try{
+ 	
     	response.pipe(gunzip);
     }catch(err) {
     	console.log('##################errore pipe');
