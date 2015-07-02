@@ -495,7 +495,7 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
 	}
 	try{
-		var response = request(options);
+		//var response = request(options);
 		var response = request(options, function (error, response, body) {
  
 			 if (!error && !response.statusCode == 200){
