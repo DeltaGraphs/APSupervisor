@@ -26,6 +26,18 @@
 	    width: 100% !important;
 	}
 	</style>
+	<script>
+		window.onload = function(){
+			var flag = false;
+			while (!flag){
+				if (document.getElementsByTagName('map-chart')[0] !== undefined){
+					var p = document.getElementById('loadMap').getElementsByTagName('p')[0];
+					document.getElementById('loadMap').removeChild(p);
+					flag = true;
+				}
+			}
+		};
+	</script>
 </head>
 <body ng-app='norris-nrti'>
 
@@ -40,7 +52,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>-->
-                    <a class="navbar-brand" href="index.html"><span>APSupervisor</span> i bus di Padova in real-time</a>
+                    <a class="navbar-brand" href="http://apsupervisor-usa.herokuapp.com"><span>APSupervisor</span> i bus di Padova in real-time</a>
                 </div>
                 <!--<div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
@@ -153,7 +165,8 @@
 					var appConfig = function($routeProvider) {
 					    $routeProvider
 					    .when('/' ,{
-
+					      controller: 'LineController',
+				          template: '<line-bus></line-bus>'
 				    	})
 				        .when('/map/:id',{
 				          controller: 'LineController',
@@ -162,7 +175,13 @@
 				    };
 					angular.module('norris-nrti').config(appConfig);
 					angular.module('norris-nrti').controller('LineController', ['$scope', '$routeParams', function($scope, $routeParams){
-						$scope.id = $routeParams.id;
+						if ($routeParams.id !== undefined && $routeParams.id !== null){
+							$scope.id = $routeParams.id;
+						}
+						else{
+							$scope.id = 22;
+						}
+						
 					}]);
 					angular.module('norris-nrti').directive('lineBus', function($compile){
 						return {
@@ -202,6 +221,9 @@
 				    <option value="SIR1">Tram</option>
 				  </select>
 				</p>
+				<div id="loadMap">
+					<p>Loading bus line ...</p>
+				</div>
 				<div id="mapContainer" ng-view>
 					
 		        </div>
