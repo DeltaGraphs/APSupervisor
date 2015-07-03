@@ -488,81 +488,54 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 	    'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
 	    'Pragma': 'no-cache',
 	    'Origin': 'null',
-	    'Accept-Encoding': 'gzip',
 	    'Accept-Language': 'it-IT,it;q=0.8,en-US;q=0.6,en;q=0.4',
 	    'Cache-Control': 'no-cache',
 	    'Connection': 'keep-alive',
-	    'gzip': true
 	};
 
 	var options = {
 	    url: url,
 	    method: 'POST',
 	    headers: headers,
-	    form: { 'l': linea },
-		secureOptions: require('constants').SSL_OP_NO_TLSv1_2
+	    form: { 'l': linea }
 	}
 	try{
 		//var response = request(options);
 		var response = request(options, function (error, response, body) {
  
-			 if (!error && !response.statusCode == 200){
-				gunzipJSON(response,mapChartFlow,tableFlow,linea);
+			 if (!error && response.statusCode == 200 && body.length!=0){
+				console.dir(body);
+				mapChartFlow.updateMovie(JSON.parse(body));
+				//table.deleteAllFlows();
+				//table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
+				var records = JSON.parse(body);
+				var flowRecs = tableFlow.getData();
+				for(var i=0; i < records.length; i++) {
+					var found = false;
+					for(var j=0; j < flowRecs.length && !found; j++) {
+						if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
+							tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
+							flowRecs.splice(j, 1);
+							found = true;
+						}
+					}		
+					if(!found) {
+						tableFlow.addRecord(records[i]);
+					}	
+					//table.addRecord('flow'+tableFlowNum, records[i]);
+				}
+				for(var k=0; k < flowRecs.length; k++){
+					flowRecs[k].capolinea = "ARRIVATO"; 
+					flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
+					tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
+				}
 			}
-		 
 		 });
-	    //console.log('RESPONSE');
-	    //gunzipJSON(response,mapChartFlow,table,tableFlowName,linea);
-		//gunzipJSON(response,mapChartFlow,tableFlow,linea);
 	}catch(err) {
     	console.log('##################errore RICHIESTA');
     }
 }
  
-//function gunzipJSON(response,mapChartFlow,table,tableFlowNum,linea){
-function gunzipJSON(response,mapChartFlow,tableFlow,linea){
- 	//console.log('gunzipJSON');
-	try{
-    var gunzip = zlib.createGunzip();
-    var json = "";
-	
-    gunzip.on('data', function(data){
-        json += data.toString();
-    });
-        
-    gunzip.on('end', function(){
-    	//console.dir(json);
-        mapChartFlow.updateMovie(JSON.parse(json));
-		//table.deleteAllFlows();
-		//table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
-		var records = JSON.parse(json);
-		var flowRecs = tableFlow.getData();
-		for(var i=0; i < records.length; i++) {
-			var found = false;
-			for(var j=0; j < flowRecs.length && !found; j++) {
-				if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
-					tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
-					flowRecs.splice(j, 1);
-					found = true;
-				}
-			}		
-			if(!found) {
-				tableFlow.addRecord(records[i]);
-			}	
-			//table.addRecord('flow'+tableFlowNum, records[i]);
-		}
-		for(var k=0; k < flowRecs.length; k++){
-			flowRecs[k].capolinea = "ARRIVATO"; 
-			flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
-			tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
-		}
-    });
- 	
-    	response.pipe(gunzip);
-    }catch(err) {
-    	console.log('##################errore pipe');
-    }
-}
 
 //function updateLinea(mapChartFlow,table,tableFlowNum,linea){
 function updateLinea(mapChartFlow,tableFlow,linea){
