@@ -371,7 +371,7 @@ try{
     var myVar=setInterval(function () {repeat();}, 5000);
 
     var tableProps = {
-        headers: ['BusID', 'Terminus'],
+        headers: ['BusID', 'Capolinea'],
 		sort: {column: ['BusID'], ordering: ['ASC']},
         appearance: {
 			horizontalGrid: {
@@ -552,7 +552,7 @@ function gunzipJSON(response,mapChartFlow,tableFlow,linea){
 			//table.addRecord('flow'+tableFlowNum, records[i]);
 		}
 		for(var k=0; k < flowRecs.length; k++){
-			flowRecs[k].capolinea = "ARRIVED";
+			flowRecs[k].capolinea = "ARRIVATO"; 
 			flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
 			tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
 		}
