@@ -504,7 +504,7 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 		var response = request(options, function (error, response, body) {
  
 			 if (!error && response.statusCode == 200 && body.length!=0){
-				console.dir(body);
+				//console.dir(body);
 				mapChartFlow.updateMovie(JSON.parse(body));
 				//table.deleteAllFlows();
 				//table.createTableFlow({ID:'flow'+tableFlowNum, name:'linea '+tableFlowNum, columnKeys:['IdMezzo', 'capolinea']});
