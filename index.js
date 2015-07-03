@@ -374,7 +374,11 @@ try{
         headers: ['BusID', 'Terminus'],
 		sort: {column: ['BusID'], ordering: ['ASC']},
         appearance: {
-			border: {
+			horizontalGrid: {
+				width: 1,
+				color: '#fff'
+			},
+			verticalGrid: {
 				width: 1,
 				color: '#fff'
 			},
