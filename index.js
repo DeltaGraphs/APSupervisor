@@ -513,10 +513,10 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 				for(var i=0; i < records.length; i++) {
 					var found = false;
 					if(records[i].StatoPorte == 0) {
-						record[i].Stato = 'IN CORSA';
+						records[i].Stato = 'IN CORSA';
 					}						
 					else if(records[i].StatoPorte == 1) {
-						record[i].Stato = 'IN FERMATA';
+						records[i].Stato = 'IN FERMATA';
 					}
 					for(var j=0; j < flowRecs.length && !found; j++) {
 						if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
