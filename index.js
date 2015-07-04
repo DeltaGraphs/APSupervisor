@@ -515,7 +515,7 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 					if(records[i].StatoPorte == 0) {
 						record[i].Stato = 'IN CORSA';
 					}						
-					else if(records[i].StatoPorte == 1) { {
+					else if(records[i].StatoPorte == 1) {
 						record[i].Stato = 'IN FERMATA';
 					}
 					for(var j=0; j < flowRecs.length && !found; j++) {
