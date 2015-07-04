@@ -523,6 +523,9 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 						records[i].Stato = 'IN FERMATA';
 					}
 					for(var j=0; j < flowRecs.length && !found; j++) {
+						if(flowRecs[j].norrisRecordIsValid === false) {
+							console.log('THIS IS NOT VALID!');
+						}
 						if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
 							tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
 							flowRecs.splice(j, 1);
