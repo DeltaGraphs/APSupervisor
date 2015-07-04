@@ -34,7 +34,7 @@ try{
             ID: 'map0',
             title: 'APS test',
             height: 600,
-            width: 1000,
+            width: 0,
             enableLegend: true,
             legend: {
                 position: 'NE',
