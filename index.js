@@ -523,9 +523,6 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 						records[i].Stato = 'IN FERMATA';
 					}
 					for(var j=0; j < flowRecs.length && !found; j++) {
-						if(flowRecs[j].norrisRecordIsValid === false) {
-							console.log('THIS IS NOT VALID!');
-						}
 						if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
 							tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
 							flowRecs.splice(j, 1);
@@ -540,7 +537,7 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 				for(var k=0; k < flowRecs.length; k++){
 					flowRecs[k].capolinea = ""; 
 					flowRecs[k].stato = "ARRIVATO"; 
-					flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
+					flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
 					tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
 				}
 			}
