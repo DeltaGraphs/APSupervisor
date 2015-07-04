@@ -513,6 +513,9 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 				var flowRecs = tableFlow.getData();
 				for(var i=0; i < records.length; i++) {
 					var found = false;
+					if(records[i].capolinea === undefined) {
+						records[i].capolinea = '';
+					}
 					if(records[i].StatoPorte == 0) {
 						records[i].Stato = 'IN CORSA';
 					}						
