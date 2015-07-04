@@ -373,6 +373,7 @@ try{
     var tableProps = {
         headers: ['BusID', 'Capolinea', 'Stato'],
 		sort: {column: ['BusID'], ordering: ['ASC']},
+		maxItemsPage: 50,
         appearance: {
 			horizontalGrid: {
 				width: 1,
