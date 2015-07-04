@@ -571,7 +571,7 @@ var poller=function(){
 	updateLinea(mapChartFlow_43_1,tableFlow_43,'43','43');
 	updateLinea(mapChartFlow_SIR1_1,tableFlow_SIR1,'SIR1','SIR1');
 };
-var myVar=setInterval(function () {poller();}, 3000);
+var myVar=setInterval(function () {poller();}, 1500);
     
 
 /*app.get('/', function (req, res) {
