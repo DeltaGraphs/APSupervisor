@@ -371,7 +371,7 @@ try{
     var myVar=setInterval(function () {repeat();}, 5000);
 
     var tableProps = {
-        headers: ['BusID', 'Capolinea'],
+        headers: ['BusID', 'Capolinea', 'Stato'],
 		sort: {column: ['BusID'], ordering: ['ASC']},
         appearance: {
 			horizontalGrid: {
@@ -401,79 +401,79 @@ try{
     prop03.ID = 'tab03';
     prop03.title = 'linea 03';
     var table03 = page1.createTable(prop03);
-    var tableFlow_03 = table03.createTableFlow({ID:'flow03', name:'linea 03', columnKeys:['IdMezzo', 'capolinea']});var prop05 = tableProps;
+    var tableFlow_03 = table03.createTableFlow({ID:'flow03', name:'linea 03', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop05 = tableProps;
     prop05.ID = 'tab05';
     prop05.title = 'linea 05';
     var table05 = page1.createTable(prop05);
-    var tableFlow_05 = table05.createTableFlow({ID:'flow05', name:'linea 05', columnKeys:['IdMezzo', 'capolinea']});var prop06 = tableProps;
+    var tableFlow_05 = table05.createTableFlow({ID:'flow05', name:'linea 05', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop06 = tableProps;
     prop06.ID = 'tab06';
     prop06.title = 'linea 06';
     var table06 = page1.createTable(prop06);
-    var tableFlow_06 = table06.createTableFlow({ID:'flow06', name:'linea 06', columnKeys:['IdMezzo', 'capolinea']});var prop07 = tableProps;
+    var tableFlow_06 = table06.createTableFlow({ID:'flow06', name:'linea 06', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop07 = tableProps;
     prop07.ID = 'tab07';
     prop07.title = 'linea 07';
     var table07 = page1.createTable(prop07);
-    var tableFlow_07 = table07.createTableFlow({ID:'flow07', name:'linea 07', columnKeys:['IdMezzo', 'capolinea']});var prop09 = tableProps;
+    var tableFlow_07 = table07.createTableFlow({ID:'flow07', name:'linea 07', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop09 = tableProps;
     prop09.ID = 'tab09';
     prop09.title = 'linea 09';
     var table09 = page1.createTable(prop09);
-    var tableFlow_09 = table09.createTableFlow({ID:'flow09', name:'linea 09', columnKeys:['IdMezzo', 'capolinea']});var prop1 = tableProps;
+    var tableFlow_09 = table09.createTableFlow({ID:'flow09', name:'linea 09', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop1 = tableProps;
     prop1.ID = 'tab1';
     prop1.title = 'linea 1';
     var table1 = page1.createTable(prop1);
-    var tableFlow_1 = table1.createTableFlow({ID:'flow1', name:'linea 1', columnKeys:['IdMezzo', 'capolinea']});var prop10 = tableProps;
+    var tableFlow_1 = table1.createTableFlow({ID:'flow1', name:'linea 1', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop10 = tableProps;
     prop10.ID = 'tab10';
     prop10.title = 'linea 10';
     var table10 = page1.createTable(prop10);
-    var tableFlow_10 = table10.createTableFlow({ID:'flow10', name:'linea 10', columnKeys:['IdMezzo', 'capolinea']});var prop11 = tableProps;
+    var tableFlow_10 = table10.createTableFlow({ID:'flow10', name:'linea 10', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop11 = tableProps;
     prop11.ID = 'tab11';
     prop11.title = 'linea 11';
     var table11 = page1.createTable(prop11);
-    var tableFlow_11 = table11.createTableFlow({ID:'flow11', name:'linea 11', columnKeys:['IdMezzo', 'capolinea']});var prop12 = tableProps;
+    var tableFlow_11 = table11.createTableFlow({ID:'flow11', name:'linea 11', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop12 = tableProps;
     prop12.ID = 'tab12';
     prop12.title = 'linea 12';
     var table12 = page1.createTable(prop12);
-    var tableFlow_12 = table12.createTableFlow({ID:'flow12', name:'linea 12', columnKeys:['IdMezzo', 'capolinea']});var prop13 = tableProps;
+    var tableFlow_12 = table12.createTableFlow({ID:'flow12', name:'linea 12', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop13 = tableProps;
     prop13.ID = 'tab13';
     prop13.title = 'linea 13';
     var table13 = page1.createTable(prop13);
-    var tableFlow_13 = table13.createTableFlow({ID:'flow13', name:'linea 13', columnKeys:['IdMezzo', 'capolinea']});var prop15 = tableProps;
+    var tableFlow_13 = table13.createTableFlow({ID:'flow13', name:'linea 13', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop15 = tableProps;
     prop15.ID = 'tab15';
     prop15.title = 'linea 15';
     var table15 = page1.createTable(prop15);
-    var tableFlow_15 = table15.createTableFlow({ID:'flow15', name:'linea 15', columnKeys:['IdMezzo', 'capolinea']});var prop16 = tableProps;
+    var tableFlow_15 = table15.createTableFlow({ID:'flow15', name:'linea 15', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop16 = tableProps;
     prop16.ID = 'tab16';
     prop16.title = 'linea 16';
     var table16 = page1.createTable(prop16);
-    var tableFlow_16 = table16.createTableFlow({ID:'flow16', name:'linea 16', columnKeys:['IdMezzo', 'capolinea']});var prop18 = tableProps;
+    var tableFlow_16 = table16.createTableFlow({ID:'flow16', name:'linea 16', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop18 = tableProps;
     prop18.ID = 'tab18';
     prop18.title = 'linea 18';
     var table18 = page1.createTable(prop18);
-    var tableFlow_18 = table18.createTableFlow({ID:'flow18', name:'linea 18', columnKeys:['IdMezzo', 'capolinea']});var prop22 = tableProps;
+    var tableFlow_18 = table18.createTableFlow({ID:'flow18', name:'linea 18', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop22 = tableProps;
     prop22.ID = 'tab22';
     prop22.title = 'linea 22';
     var table22 = page1.createTable(prop22);
-    var tableFlow_22 = table22.createTableFlow({ID:'flow22', name:'linea 22', columnKeys:['IdMezzo', 'capolinea']});var prop24 = tableProps;
+    var tableFlow_22 = table22.createTableFlow({ID:'flow22', name:'linea 22', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop24 = tableProps;
     prop24.ID = 'tab24';
     prop24.title = 'linea 24';
     var table24 = page1.createTable(prop24);
-    var tableFlow_24 = table24.createTableFlow({ID:'flow24', name:'linea 24', columnKeys:['IdMezzo', 'capolinea']});var prop41 = tableProps;
+    var tableFlow_24 = table24.createTableFlow({ID:'flow24', name:'linea 24', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop41 = tableProps;
     prop41.ID = 'tab41';
     prop41.title = 'linea 41';
     var table41 = page1.createTable(prop41);
-    var tableFlow_41 = table41.createTableFlow({ID:'flow41', name:'linea 41', columnKeys:['IdMezzo', 'capolinea']});var prop42 = tableProps;
+    var tableFlow_41 = table41.createTableFlow({ID:'flow41', name:'linea 41', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop42 = tableProps;
     prop42.ID = 'tab42';
     prop42.title = 'linea 42';
     var table42 = page1.createTable(prop42);
-    var tableFlow_42 = table42.createTableFlow({ID:'flow42', name:'linea 42', columnKeys:['IdMezzo', 'capolinea']});var prop43 = tableProps;
+    var tableFlow_42 = table42.createTableFlow({ID:'flow42', name:'linea 42', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var prop43 = tableProps;
     prop43.ID = 'tab43';
     prop43.title = 'linea 43';
     var table43 = page1.createTable(prop43);
-    var tableFlow_43 = table43.createTableFlow({ID:'flow43', name:'linea 43', columnKeys:['IdMezzo', 'capolinea']});var propSIR1 = tableProps;
+    var tableFlow_43 = table43.createTableFlow({ID:'flow43', name:'linea 43', columnKeys:['IdMezzo', 'capolinea', 'Stato']});var propSIR1 = tableProps;
     propSIR1.ID = 'tabSIR1';
     propSIR1.title = 'linea SIR1';
     var tableSIR1 = page1.createTable(propSIR1);
-    var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1', columnKeys:['IdMezzo', 'capolinea']});
+    var tableFlow_SIR1 = tableSIR1.createTableFlow({ID:'flowSIR1', name:'linea SIR1', columnKeys:['IdMezzo', 'capolinea', 'Stato']});
 }catch(err) {
     console.log('##################errore NORRIS '+err);
 }
@@ -512,6 +512,12 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 				var flowRecs = tableFlow.getData();
 				for(var i=0; i < records.length; i++) {
 					var found = false;
+					if(records[i].StatoPorte == 0) {
+						record[i].Stato = 'IN CORSA';
+					}						
+					else if(records[i].StatoPorte == 1) { {
+						record[i].Stato = 'IN FERMATA';
+					}
 					for(var j=0; j < flowRecs.length && !found; j++) {
 						if(flowRecs[j].IdMezzo === records[i].IdMezzo) {
 							tableFlow.updateRecord(flowRecs[j].norrisRecordID, records[i]);
@@ -525,7 +531,8 @@ function makeRequest(mapChartFlow,tableFlow,linea){
 					//table.addRecord('flow'+tableFlowNum, records[i]);
 				}
 				for(var k=0; k < flowRecs.length; k++){
-					flowRecs[k].capolinea = "ARRIVATO"; 
+					flowRecs[k].capolinea = ""; 
+					flowRecs[k].stato = "ARRIVATO"; 
 					flowRecs[k].appearance = [{bg: '#DDDDDD',text: '#000000'},{bg: '#DDDDDD',text: '#000000'}];
 					tableFlow.updateRecord(flowRecs[k].norrisRecordID, flowRecs[k]);
 				}
