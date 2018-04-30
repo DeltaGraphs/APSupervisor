@@ -482,7 +482,8 @@ try{
 //function makeRequest(mapChartFlow,table,tableFlowName,linea){
 function makeRequest(mapChartFlow,tableFlow,linea){
     
-    var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
+    //var url = 'http://www.apsholding.it/index.php/informazioni/dov­e­il­mezzo­pubblico­in­tempo­reale?option=com_mappeaps&view=posmezzi&format=raw';
+    var url = 'http://www.fsbusitaliaveneto.it/index.php/offerta/dove-sono-i-mezzi?option=com_mappeaps&view=posmezzi&format=raw';
 	var headers = { 
 	    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36',
 	    'Content-Type' : 'application/x-www-form-urlencoded',
